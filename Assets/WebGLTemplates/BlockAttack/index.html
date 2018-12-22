@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="Experience the modern successor of the SNES classic competitive puzzler that we grew up with. If you enjoy the thrill of pulling off giant chains, racking up massive bonuses and seeing destructive garbage rain down on your opponent, you’ll love Block Attack.">
+    <meta name="keywords" content="block attack, block party, web game, tetris attack, multiplayer, free to play, online game, play with friends">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <title>Block Attack | Block Party Games</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="%UNITY_WEBGL_LOADER_URL%"></script>
+    <script>
+      var game = UnityLoader.instantiate("game", "%UNITY_WEBGL_BUILD_URL%");
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131009482-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-131009482-2');
+    </script>
+  </head>
+  <body>
+    <div id="game" style="width: 1920px; height: 1080px"></div>
+    <script src="gameScaler.js"></script>
+  </body>
+</html>
