@@ -4,7 +4,7 @@ public class BlockClearer : MonoBehaviour {
     [SerializeField] Block block = null;
     [SerializeField] FloatReference clearDuration = null;
     [SerializeField] BlockEmptier emptier = null;
-    // public Score Score; // TODO: Convert this to a GameEvent that Score listens to
+    [SerializeField] ScoreManager scoreManager = null;
     // public AudioSource AudioSource; // Convert this to a GameEventListener
     float delayElapsed;
     public float DelayDuration;
@@ -23,7 +23,7 @@ public class BlockClearer : MonoBehaviour {
             if(delayElapsed >= DelayDuration) {
                 block.State = BlockState.Clearing;
                 Elapsed = 0f;
-                // Score.ScoreMatch();
+                scoreManager.ScoreMatch();
                 // AudioSource.pitch = Pitch;
                 // AudioSource.Play();
             }

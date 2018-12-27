@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class MatchDetector : MonoBehaviour {
     Queue<Block> matchDetectionRequests;
     [SerializeField] BlockManager blockManager = null;
-    // [SerializeField] Score score = null; // TODO: Implement Score
+    [SerializeField] ScoreManager scoreManager = null;
     // [SerializeField] PanelManager panelManager; // TODO: Convert this to an event to reduce coupling
     // [SerializeField] ChainDetector chainDetector = null; // TODO: Implement ChainDetector
     // public AudioSource AudioSource; // TODO: Convert this to an event
@@ -109,7 +109,7 @@ public class MatchDetector : MonoBehaviour {
         // AudioSource.pitch = 1f; // Implement Audio
 
         if(matchedBlockCount > minimumMatchLength.Value) {
-            // Score.ScoreCombo(matchedBlockCount); // TODO: Implement Score
+            scoreManager.ScoreCombo(matchedBlockCount);
             // PanelManager.Panels[block.Column, block.Row].Play(PanelType.Combo, matchedBlockCount); TODO: Implement PanelManager
             playSound = true;
         }
