@@ -5182,6 +5182,7 @@ MonoBehaviour:
     constantValue: 0
     variable: {fileID: 11400000, guid: 8c98890a155328f48bc81d9362b0f95a, type: 2}
   emptier: {fileID: 6101163365759769902}
+  scoreManager: {fileID: 11400000, guid: 008118f028c5029419e4b6def5d7d5eb, type: 2}
   DelayDuration: 0
   Elapsed: 0
 --- !u!114 &6101163365759769902

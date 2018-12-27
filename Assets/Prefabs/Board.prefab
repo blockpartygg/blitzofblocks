@@ -464,6 +464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockManager: {fileID: 8907980771090525391}
+  scoreManager: {fileID: 11400000, guid: 008118f028c5029419e4b6def5d7d5eb, type: 2}
   boardColumns:
     useConstant: 0
     constantValue: 0
