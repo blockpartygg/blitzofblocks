@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e4d64428ec80a4dbb81670530e40e8, type: 3}
+  m_Name: ScoreManager
+  m_EditorClassIdentifier: 
+  points: 0
+  pointsChanged: {fileID: 11400000, guid: 7df49684fc040214f8584fe048a7132e, type: 2}
+  blocksMatched: 0
+  blocksMatchedChanged: {fileID: 11400000, guid: a728409f2e2e2c348b0bc35b9eae7762,
+    type: 2}
+  comboCountsChanged: {fileID: 11400000, guid: 54e246a199c90fa468b15431f0d16a11, type: 2}
+  chainLengthsChanged: {fileID: 11400000, guid: 825b9842d86226e4cb7278d7fba0dff0,
+    type: 2}
+  linesRaised: 0
+  linesRaisedChanged: {fileID: 11400000, guid: bd5b932ee7559d84fa581d11a5d2ff40, type: 2}
+  boardColumns:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: ea42521d3998d6b44b8606aaa2138828, type: 2}
+  boardRows:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 0d38f9d9b14b6ec4c8b0acccec46c42e, type: 2}
+  matchValue:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 7f39a3d253d37a24bab6acb50e58e104, type: 2}
+  comboValues:
+    useConstant: 0
+    constantValue: 
+    variable: {fileID: 11400000, guid: 5dd79894ab6880f4797184ced5d9df06, type: 2}
+  chainValues:
+    useConstant: 0
+    constantValue: 
+    variable: {fileID: 11400000, guid: d9ddb8f4300937c46b9b82980619551d, type: 2}
+  raiseValue:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 70e58b93358da0c44a697bb6381994f4, type: 2}
