@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
+    [SerializeField] ScoreManager scoreManager = null;
     [SerializeField] ClockManager clockManager = null;
     [SerializeField] FloatReference startDelay = null;
     [SerializeField] FloatReference endDelay = null;
@@ -14,6 +16,8 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start() {
+        scoreManager.Reset();
+
         StartCoroutine(RunGameLoop());
     }
 
@@ -22,12 +26,10 @@ public class GameManager : MonoBehaviour {
         yield return StartCoroutine(RunGamePlaying());
         yield return StartCoroutine(RunGameEnding());
 
-        Debug.Log("Load results");
+        SceneManager.LoadScene("Results");
     }
 
     IEnumerator RunGameStarting() {
-        Debug.Log("Game starting");
-
         clockManager.SetActive(false);
         clockManager.ResetSecondsRemaining();
 
@@ -35,8 +37,6 @@ public class GameManager : MonoBehaviour {
     }
 
     IEnumerator RunGamePlaying() {
-        Debug.Log("Game playing");
-
         clockManager.SetActive(true);
 
         while(!clockManager.ShouldEndGame()) {
@@ -45,8 +45,6 @@ public class GameManager : MonoBehaviour {
     }
 
     IEnumerator RunGameEnding() {
-        Debug.Log("Game ending");
-
         clockManager.SetActive(false);
 
         yield return endWait;
