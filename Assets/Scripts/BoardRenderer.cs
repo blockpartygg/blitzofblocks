@@ -8,6 +8,7 @@ public class BoardRenderer : MonoBehaviour {
     [SerializeField] Transform bottomWallTransform = null;
     [SerializeField] Transform blockRoot = null;
     [SerializeField] Transform cursorRoot = null;
+    [SerializeField] Transform panelRoot = null;
     [SerializeField] IntReference boardColumns = null;
     [SerializeField] IntReference boardRows = null;
 
@@ -22,7 +23,9 @@ public class BoardRenderer : MonoBehaviour {
         topWallTransform.localScale = new Vector3(boardColumns.Value, 0.1f, 2f);
         bottomWallTransform.position = new Vector3(0, 0, -0.5f);
         bottomWallTransform.localScale = new Vector3(boardColumns.Value, 0.1f, 2f);
+
         blockRoot.position = new Vector3(-0.5f * (boardColumns.Value - 1), 0, 0);
         cursorRoot.position = new Vector3(Mathf.Ceil(-0.5f * (boardColumns.Value - 1)), 0.5f, -0.5f);
+        panelRoot.position = new Vector3(-0.5f * (boardColumns.Value - 1), 0, -0.5f);
     }
 }
