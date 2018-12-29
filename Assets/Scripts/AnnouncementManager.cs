@@ -10,7 +10,7 @@ public class AnnouncementManager : MonoBehaviour {
         secondWait = new WaitForSeconds(1f);
     }
 
-    void Start() {
+    public void ShowGameStarting() {
         StartCoroutine(RunCountdownSequence());
     }
 
@@ -20,9 +20,6 @@ public class AnnouncementManager : MonoBehaviour {
         yield return StartCoroutine(RunThreeCoroutine());
         yield return StartCoroutine(RunTwoCoroutine());
         yield return StartCoroutine(RunOneCoroutine());
-        yield return StartCoroutine(RunGoCoroutine());
-
-        text.enabled = false;
     }
 
     IEnumerator RunThreeCoroutine() {
@@ -43,9 +40,20 @@ public class AnnouncementManager : MonoBehaviour {
         yield return secondWait;
     }
 
+    public void ShowGamePlaying() {
+        StartCoroutine(RunGoCoroutine());
+    }
+
     IEnumerator RunGoCoroutine() {
         text.text = "Go!";
 
         yield return secondWait;
+
+        text.enabled = false;
+    }
+
+    public void ShowGameEnding() {
+        text.enabled = true;
+        text.text = "Time's up!";
     }
 }
