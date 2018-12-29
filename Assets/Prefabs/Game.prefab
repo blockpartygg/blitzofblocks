@@ -43,7 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bac273ff41ccb394c922d5111c4eece6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreManager: {fileID: 11400000, guid: 008118f028c5029419e4b6def5d7d5eb, type: 2}
   clockManager: {fileID: 11400000, guid: 1295d0d22e3ecde418b3359ff0610f5a, type: 2}
+  announcementManager: {fileID: 0}
   startDelay:
     useConstant: 0
     constantValue: 0
