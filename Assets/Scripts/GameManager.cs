@@ -5,6 +5,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
     [SerializeField] ScoreManager scoreManager = null;
     [SerializeField] ClockManager clockManager = null;
+    [SerializeField] AnnouncementManager announcementManager = null;
     [SerializeField] FloatReference startDelay = null;
     [SerializeField] FloatReference endDelay = null;
     WaitForSeconds startWait;
@@ -32,12 +33,14 @@ public class GameManager : MonoBehaviour {
     IEnumerator RunGameStarting() {
         clockManager.SetActive(false);
         clockManager.ResetSecondsRemaining();
+        announcementManager.ShowGameStarting();
 
         yield return startWait;
     }
 
     IEnumerator RunGamePlaying() {
         clockManager.SetActive(true);
+        announcementManager.ShowGamePlaying();
 
         while(!clockManager.ShouldEndGame()) {
             yield return null;
@@ -46,6 +49,7 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator RunGameEnding() {
         clockManager.SetActive(false);
+        announcementManager.ShowGameEnding();
 
         yield return endWait;
     }
