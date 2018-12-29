@@ -47,7 +47,7 @@ public class Block : MonoBehaviour {
     public BlockMatcher Matcher;
     public BlockClearer Clearer;
     public BlockEmptier Emptier;
-    // public BlockChainer Chainer;
+    public BlockChainer Chainer;
     // public BlockAnimateIn AnimateIn;
     public event EventHandler StateChanged;
     public event EventHandler TypeChanged;

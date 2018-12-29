@@ -5,11 +5,12 @@ public class MatchDetector : MonoBehaviour {
     Queue<Block> matchDetectionRequests;
     [SerializeField] BlockManager blockManager = null;
     [SerializeField] ScoreManager scoreManager = null;
-    // [SerializeField] PanelManager panelManager; // TODO: Convert this to an event to reduce coupling
-    // [SerializeField] ChainDetector chainDetector = null; // TODO: Implement ChainDetector
+    [SerializeField] PanelManager panelManager = null; // TODO: Consider converting this to a decoupled event in the future
+    [SerializeField] ChainDetector chainDetector = null;
     // public AudioSource AudioSource; // TODO: Convert this to an event
     // public AudioClip BonusClip; // TODO: Convert this to an event
     [SerializeField] IntReference boardColumns = null;
+    [SerializeField] IntReference boardRows = null;
     [SerializeField] IntReference minimumMatchLength = null;
 
     void Awake() {
@@ -70,7 +71,7 @@ public class MatchDetector : MonoBehaviour {
         }
 
         if(!horizontalMatch && !verticalMatch) {
-            // block.Chainer.ChainEligible = false; TODO: Make this a EndChainInvolvement method in Chainer
+            block.Chainer.SetChainEligibility(false);
             return;
         }
 
@@ -85,24 +86,24 @@ public class MatchDetector : MonoBehaviour {
         if(horizontalMatch) {
             for(int matchColumn = leftColumn; matchColumn < rightColumn; matchColumn++) {
                 blockManager.Blocks[matchColumn, block.Row].Matcher.Match(matchedBlockCount, delayCounter--);
-                //if(blockManager.Blocks[matchColumn, block.Row].Chainer.ChainEligible) {
-                    // ChainDetector.AddChainContributingBlock(BlockManager.Blocks[matchColumn, block.Row]); // TODO: Implement ChainDetector
-                //    incrementChain = true;
-                //}
+                if(blockManager.Blocks[matchColumn, block.Row].Chainer.ChainEligible) {
+                    chainDetector.AddChainContributingBlock(blockManager.Blocks[matchColumn, block.Row]);
+                    incrementChain = true;
+                }
             }
         }
 
         if(verticalMatch) {
             for(int matchRow = topRow - 1; matchRow >= bottomRow; matchRow--) {
                 blockManager.Blocks[block.Column, matchRow].Matcher.Match(matchedBlockCount, delayCounter--);
-                // if(blockManager.Blocks[block.Column, matchRow].Chainer.ChainEligible) {
-                    // ChainDetector.AddChainContributingBlock(BlockManager.Blocks[block.Column, matchRow]); // TODO: Implement ChainDetector
-                //    incrementChain = true;
-                //}
+                if(blockManager.Blocks[block.Column, matchRow].Chainer.ChainEligible) {
+                    chainDetector.AddChainContributingBlock(blockManager.Blocks[block.Column, matchRow]);
+                    incrementChain = true;
+                }
             }
         }
 
-        // block.Chainer.ChainEligible = false; // TODO: Implement Chainer
+        block.Chainer.SetChainEligibility(false);
 
         bool playSound = false;
 
@@ -110,17 +111,17 @@ public class MatchDetector : MonoBehaviour {
 
         if(matchedBlockCount > minimumMatchLength.Value) {
             scoreManager.ScoreCombo(matchedBlockCount);
-            // PanelManager.Panels[block.Column, block.Row].Play(PanelType.Combo, matchedBlockCount); TODO: Implement PanelManager
+            panelManager.Panels[block.Column, block.Row].Play(PanelType.Combo, matchedBlockCount);
             playSound = true;
         }
 
         if(incrementChain) {
-            // ChainDetector.IncrementChain(); // TODO: Implement ChainDetector
+            chainDetector.IncrementChain();
             int row = matchedBlockCount > minimumMatchLength.Value ? block.Row + 1 : block.Row;
-            //if(row <= PanelManager.Rows - 1) {
-                // PanelManager.Panels[block.Column, row].Play(PanelType.Chain, ChainDetector.ChainLength); // TODO: Implement PanelManager
+            if(row <= boardRows.Value - 1) { // BUG: Chains that occur on the top row won't show a panel
+                panelManager.Panels[block.Column, row].Play(PanelType.Chain, chainDetector.ChainLength);
                 // AudioSource.pitch = Mathf.Min(0.75f + ChainDetector.ChainLength * 0.25f, 2f); // TODO: Implement Audio
-            //}
+            }
             playSound = true;
         }
 
