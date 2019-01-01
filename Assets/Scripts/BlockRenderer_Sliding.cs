@@ -7,7 +7,7 @@ public class BlockRenderer_Sliding : MonoBehaviour {
     [SerializeField] FloatReference slideDuration = null;
     [SerializeField] Transform rootTransform = null;
 
-    void Update() {
+    public void UpdateRenderer() {
         if(block.State == BlockState.Sliding) {
             float direction = slider.Direction == SlideDirection.Left ? -1 : 1;
             float timePercentage = slider.Elapsed / slideDuration.Value;

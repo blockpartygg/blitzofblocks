@@ -4,8 +4,8 @@ using System;
 public class BlockRenderer_Idle : MonoBehaviour {
     [SerializeField] Block block = null;
     [SerializeField] Transform rootTransform = null;
-    [SerializeField] MeshRenderer meshRenderer = null;
-    [SerializeField] BlockTypeColors typeColors = null;
+    [SerializeField] SpriteRenderer spriteRenderer = null;
+    [SerializeField] BlockTypes types = null;
 
     void Start() {
         UpdateRenderState();
@@ -27,16 +27,16 @@ public class BlockRenderer_Idle : MonoBehaviour {
         rootTransform.position = rootTransform.parent.position;
 
         if(block.State == BlockState.Idle) {
-            meshRenderer.enabled = true;
+            spriteRenderer.enabled = true;
         }
     }
 
     void UpdateRenderType() {
         if(block.Type != -1) {
-            meshRenderer.material.color = typeColors.Colors[block.Type];
+            spriteRenderer.sprite = types.Types[block.Type].Sprite;
         }
         else {
-            meshRenderer.material.color = Color.clear;
+            spriteRenderer.sprite = null;
         }
     }
 }

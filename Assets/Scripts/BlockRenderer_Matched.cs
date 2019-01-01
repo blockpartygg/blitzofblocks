@@ -4,13 +4,14 @@ public class BlockRenderer_Matched : MonoBehaviour {
     [SerializeField] Block block = null;
     [SerializeField] BlockMatcher matcher = null;
     [SerializeField] FloatReference matchFlashDuration = null;
-    [SerializeField] ColorReference matchFlashColor = null;
-    [SerializeField] MeshRenderer meshRenderer = null;
-    [SerializeField] BlockTypeColors typeColors = null;
+    [SerializeField] SpriteRenderer spriteRenderer = null;
+    [SerializeField] BlockTypes types = null;
 
-    void Update() {
+    public void UpdateRenderer() {
         if(block.State == BlockState.Matched) {
-            meshRenderer.material.color = matcher.Elapsed % matchFlashDuration.Value < matchFlashDuration.Value / 2 ? matchFlashColor.Value : typeColors.Colors[block.Type];
+            if(block.Type >= 0 && block.Type < types.Types.Count) {
+                spriteRenderer.sprite = matcher.Elapsed % matchFlashDuration.Value < matchFlashDuration.Value / 2 ? types.Types[block.Type].MatchedSprite : types.Types[block.Type].Sprite;
+            }
         }
     }
 }

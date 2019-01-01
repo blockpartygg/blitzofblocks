@@ -6,7 +6,7 @@ public class BlockRenderer_Falling : MonoBehaviour {
     [SerializeField] BlockFaller faller = null;
     [SerializeField] FloatReference fallDuration = null;
     [SerializeField] Transform rootTransform = null;
-    [SerializeField] MeshRenderer meshRenderer = null;
+    [SerializeField] SpriteRenderer spriteRenderer = null;
 
     void Start() {
         UpdateRenderState();
@@ -20,11 +20,11 @@ public class BlockRenderer_Falling : MonoBehaviour {
 
     void UpdateRenderState() {
         if(block.State == BlockState.WaitingToFall || block.State == BlockState.Falling) {
-            meshRenderer.enabled = true;
+            spriteRenderer.enabled = true;
         }
     }
 
-    void Update() {
+    public void UpdateRenderer() {
         if(block.State == BlockState.Falling) {
             float timePercentage = faller.Elapsed / fallDuration.Value;
             Vector3 fallTranslation = new Vector3(0, -1 * timePercentage);
