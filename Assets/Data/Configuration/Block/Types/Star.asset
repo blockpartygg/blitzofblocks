@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6997f4afa5ea514d974b3eb000ce68a, type: 3}
+  m_Name: Star
+  m_EditorClassIdentifier: 
+  Sprite: {fileID: 21300000, guid: f3f5b61c1ec18cf40a96eb946704b6fa, type: 3}
+  MatchedSprite: {fileID: 21300000, guid: 78e86ea9238ad10438b88e2b1800a532, type: 3}
+  ClearingSprite: {fileID: 21300000, guid: 9e506b01588df8c4d81943fb87100849, type: 3}
+  Color: {r: 0.94117653, g: 0.5529412, b: 0.28627452, a: 1}

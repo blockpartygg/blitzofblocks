@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6997f4afa5ea514d974b3eb000ce68a, type: 3}
+  m_Name: Circle
+  m_EditorClassIdentifier: 
+  Sprite: {fileID: 21300000, guid: 9cc3081d81a5c5f46af2a4868debedf4, type: 3}
+  MatchedSprite: {fileID: 21300000, guid: 95f6b221b4cbddc48a9d56a29128a9b7, type: 3}
+  ClearingSprite: {fileID: 21300000, guid: 0ed679021a45d324eb954249c0502bfc, type: 3}
+  Color: {r: 0.24313727, g: 0.62352943, b: 0.29411766, a: 1}

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3678282ab777b348897bfb14296bc36, type: 3}
   m_Name: ClockTextFormat
   m_EditorClassIdentifier: 
-  Value: '{0}:{1:D2}<sup>:{2:D3}</sup>'
+  Value: '{0}:{1:D2}'

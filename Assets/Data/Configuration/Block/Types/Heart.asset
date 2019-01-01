@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6997f4afa5ea514d974b3eb000ce68a, type: 3}
+  m_Name: Heart
+  m_EditorClassIdentifier: 
+  Sprite: {fileID: 21300000, guid: 583fbdd5595ef5d4d96489a00e423e1b, type: 3}
+  MatchedSprite: {fileID: 21300000, guid: aeee848591db75148befde48b421ec7d, type: 3}
+  ClearingSprite: {fileID: 21300000, guid: d5c1ad4ebde4a0b46befda9faa4f4694, type: 3}
+  Color: {r: 0.7019608, g: 0.20784315, b: 0.28235295, a: 1}
