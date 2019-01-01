@@ -59,6 +59,8 @@ public class ScoreManager : ScriptableObject {
     [SerializeField] IntListReference chainValues = null;
     [SerializeField] IntReference raiseValue = null;
 
+    bool isActive;
+
     void OnEnable() {
         Reset();
     }
@@ -82,29 +84,41 @@ public class ScoreManager : ScriptableObject {
         LinesRaised = 0;
     }
 
+    public void SetActive(bool isActive) {
+        this.isActive = isActive;
+    }
+
     public void ScoreMatch() {
-        int points = matchValue.Value;
-        Points += points;
-        BlocksMatched++;
+        if(isActive) {
+            int points = matchValue.Value;
+            Points += points;
+            BlocksMatched++;
+        }
     }
 
     public void ScoreCombo(int matchedBlockCount) {
-        int points = comboValues.Value[Math.Min(matchedBlockCount - 1, comboValues.Value.Count - 1)];
-        Points += points;
-        ComboCounts[matchedBlockCount]++;
-        comboCountsChanged.Raise();
+        if(isActive) {
+            int points = comboValues.Value[Math.Min(matchedBlockCount - 1, comboValues.Value.Count - 1)];
+            Points += points;
+            ComboCounts[matchedBlockCount]++;
+            comboCountsChanged.Raise();
+        }
     }
 
     public void ScoreChain(int chainLength) {
-        int points = chainValues.Value[Math.Min(chainLength - 1, chainValues.Value.Count - 1)];
-        Points += points;
-        chainLengths[chainLength]++;
-        chainLengthsChanged.Raise();
+        if(isActive) {
+            int points = chainValues.Value[Math.Min(chainLength - 1, chainValues.Value.Count - 1)];
+            Points += points;
+            chainLengths[chainLength]++;
+            chainLengthsChanged.Raise();
+        }
     }
 
     public void ScoreRaise() {
-        int points = raiseValue.Value;
-        Points += points;
-        LinesRaised++;
+        if(isActive) {
+            int points = raiseValue.Value;
+            Points += points;
+            LinesRaised++;
+        }
     }
 }
