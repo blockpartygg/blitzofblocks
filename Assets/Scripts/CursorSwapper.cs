@@ -4,20 +4,27 @@ public class CursorSwapper : MonoBehaviour {
     [SerializeField] Cursor cursor = null;
     [SerializeField] BlockManager blockManager = null;
     [SerializeField] IntReference rows = null;
+    bool isActive;
+
+    public void SetActive(bool isActive) {
+        this.isActive = isActive;
+    }
 
     public void Swap() {
-        Block leftBlock = blockManager.Blocks[cursor.Column, cursor.Row];
-        Block rightBlock = blockManager.Blocks[cursor.Column + 1, cursor.Row];
+        if(isActive) {
+            Block leftBlock = blockManager.Blocks[cursor.Column, cursor.Row];
+            Block rightBlock = blockManager.Blocks[cursor.Column + 1, cursor.Row];
 
-        if(IsSwappable(leftBlock) && IsSwappable(rightBlock)) {
-            leftBlock.Slider.SetupSlide(rightBlock);
-            rightBlock.Slider.SetupSlide(leftBlock);
-            leftBlock.Slider.Slide(SlideDirection.Right);
-            rightBlock.Slider.Slide(SlideDirection.Left);
-            // TODO: Play the swap sound
-            // AudioSource.clip = SlideClip;
-            // AudioSource.pitch = 1f;
-            // AudioSource.Play();
+            if(IsSwappable(leftBlock) && IsSwappable(rightBlock)) {
+                leftBlock.Slider.SetupSlide(rightBlock);
+                rightBlock.Slider.SetupSlide(leftBlock);
+                leftBlock.Slider.Slide(SlideDirection.Right);
+                rightBlock.Slider.Slide(SlideDirection.Left);
+                // TODO: Play the swap sound
+                // AudioSource.clip = SlideClip;
+                // AudioSource.pitch = 1f;
+                // AudioSource.Play();
+            }    
         }
     }
 
