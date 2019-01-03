@@ -8,10 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no, viewport-fit=cover">
     <meta name="theme-color" content="#000000">
     <title>Clash of Blocks | Block Party Games</title>
+    <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
     <script src="%UNITY_WEBGL_LOADER_URL%"></script>
     <script>
-      function HandleProgress(gameInstance, progress) {}
+      function HandleProgress(gameInstance, progress) {
+        if(progress == 1) {
+          document.getElementById("loading").style.display = "none";
+        }
+      }
       UnityLoader.Error.handler = function() {};
       var game = UnityLoader.instantiate("game", "%UNITY_WEBGL_BUILD_URL%", { onProgress: HandleProgress });
     </script>
@@ -25,6 +30,10 @@
   </head>
   <body>
     <div id="game" style="width: 1920px; height: 1080px"></div>
+    <div id="loading">
+      <img class="blockPartyLogo" src="blockPartyLogo.png" />
+      <img class="spinner" src="spinner.gif" />
+    </div>
     <script src="gameScaler.js"></script>
   </body>
 </html>
