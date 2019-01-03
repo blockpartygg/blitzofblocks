@@ -1,8 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Analytics;
 
 public class TitlePlayButtonController : MonoBehaviour {
+    [SerializeField] SceneFader sceneFader = null;
+
     public void Play() {
-        SceneManager.LoadScene("Game");
+        AnalyticsEvent.FirstInteraction();
+        sceneFader.FadeToScene("Game");
     }
 }

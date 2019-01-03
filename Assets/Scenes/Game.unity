@@ -44,12 +44,12 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
     m_IndirectOutputScale: 1
-    m_AlbedoBoost: 1
+    m_AlbedoBoost: 1.94
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 0
@@ -88,7 +88,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: a336dcce9489f154f932eaba94a37ead,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -273,6 +274,87 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63159285}
   m_CullTransparentMesh: 0
+--- !u!1001 &281601587
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4188458551889110944, guid: 9e9e698188a1f7a4081571ab6f2131d5,
+        type: 3}
+      propertyPath: m_Name
+      value: Scene Fader
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188458551889110950, guid: 9e9e698188a1f7a4081571ab6f2131d5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188458551889110950, guid: 9e9e698188a1f7a4081571ab6f2131d5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188458551889110950, guid: 9e9e698188a1f7a4081571ab6f2131d5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188458551889110950, guid: 9e9e698188a1f7a4081571ab6f2131d5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188458551889110950, guid: 9e9e698188a1f7a4081571ab6f2131d5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188458551889110950, guid: 9e9e698188a1f7a4081571ab6f2131d5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188458551889110950, guid: 9e9e698188a1f7a4081571ab6f2131d5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188458551889110950, guid: 9e9e698188a1f7a4081571ab6f2131d5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188458551889110950, guid: 9e9e698188a1f7a4081571ab6f2131d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188458551889110950, guid: 9e9e698188a1f7a4081571ab6f2131d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188458551889110950, guid: 9e9e698188a1f7a4081571ab6f2131d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9e9e698188a1f7a4081571ab6f2131d5, type: 3}
+--- !u!114 &281601588 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4188458551889110951, guid: 9e9e698188a1f7a4081571ab6f2131d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 281601587}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cc76af16885e94c8d80f1221a06ebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &573762022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,6 +1401,11 @@ PrefabInstance:
       propertyPath: announcementManager
       value: 
       objectReference: {fileID: 877006336}
+    - target: {fileID: 958943708030085311, guid: ac8855bb7eb4e114d8006e8a556e4e65,
+        type: 3}
+      propertyPath: sceneFader
+      value: 
+      objectReference: {fileID: 281601588}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac8855bb7eb4e114d8006e8a556e4e65, type: 3}
 --- !u!1001 &1011680359545583073
@@ -1371,7 +1458,7 @@ PrefabInstance:
     - target: {fileID: 1011680358430111036, guid: 08ace02074f7cd1489652ce959ea113b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1011680358430111036, guid: 08ace02074f7cd1489652ce959ea113b,
         type: 3}

@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Analytics;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
     [SerializeField] ScoreManager scoreManager = null;
@@ -8,6 +10,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] CursorSwapper cursorSwapper = null;
     [SerializeField] CursorRenderer cursorRenderer = null;
     [SerializeField] AnnouncementManager announcementManager = null;
+    [SerializeField] SceneFader sceneFader = null;
     [SerializeField] FloatReference startDelay = null;
     [SerializeField] FloatReference endDelay = null;
     WaitForSeconds startWait;
@@ -30,7 +33,7 @@ public class GameManager : MonoBehaviour {
         yield return StartCoroutine(RunGameEnding());
 
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Results");
+        sceneFader.FadeToScene("Results");
     }
 
     IEnumerator RunGameStarting() {
@@ -38,6 +41,7 @@ public class GameManager : MonoBehaviour {
         clockManager.ResetSecondsRemaining();
         cursorSwapper.SetActive(false);
         announcementManager.ShowGameStarting();
+        AnalyticsEvent.GameStart();
 
         yield return startWait;
     }
@@ -60,6 +64,11 @@ public class GameManager : MonoBehaviour {
         cursorRenderer.SetVisible(false);
         Time.timeScale = 0.1f;
         announcementManager.ShowGameEnding();
+        Dictionary<string, object> eventData;
+        eventData = new Dictionary<string, object>();
+        eventData.Add("Score", scoreManager.Points);
+        eventData.Add("Blocks Matched", scoreManager.BlocksMatched);
+        AnalyticsEvent.GameOver("Time Attack", eventData);
 
         yield return endWait; // Note: this is multiplied by Time.timeScale
     }
