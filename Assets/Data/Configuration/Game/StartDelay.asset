@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ed1c9d235ee884a81b7686da509d7b, type: 3}
   m_Name: StartDelay
   m_EditorClassIdentifier: 
-  Value: 3
+  Value: 6
