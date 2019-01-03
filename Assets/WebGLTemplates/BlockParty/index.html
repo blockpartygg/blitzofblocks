@@ -13,7 +13,7 @@
     <script>
       function HandleProgress(gameInstance, progress) {}
       UnityLoader.Error.handler = function() {};
-      var game = UnityLoader.instantiate("game", "%UNITY_WEBGL_BUILD_URL%");
+      var game = UnityLoader.instantiate("game", "%UNITY_WEBGL_BUILD_URL%", { onProgress: HandleProgress });
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131009482-2"></script>
     <script>
