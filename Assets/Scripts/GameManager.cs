@@ -58,8 +58,8 @@ public class GameManager : MonoBehaviour {
         clockManager.SetActive(false);
         cursorSwapper.SetActive(false);
         cursorRenderer.SetVisible(false);
-        announcementManager.ShowGameEnding();
         Time.timeScale = 0.1f;
+        announcementManager.ShowGameEnding();
 
         yield return endWait; // Note: this is multiplied by Time.timeScale
     }
