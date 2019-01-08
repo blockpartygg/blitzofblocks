@@ -1,17 +1,16 @@
 ﻿using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
-using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 public class LeaderboardsManager : MonoBehaviour {
     public List<PlayerLeaderboardEntry> Entries;
 
-    async void Start() {
+    IEnumerator Start() {
         // Wait for the client to be logged in before requesting the leaderboard
         while(!PlayFabClientAPI.IsClientLoggedIn()) {
-            await Task.Delay(TimeSpan.FromSeconds(1));
+            yield return new WaitForSeconds(1);
         }
 
         PlayFabClientAPI.GetLeaderboard(new GetLeaderboardRequest() {

@@ -2,16 +2,17 @@
 using PlayFab;
 using PlayFab.ClientModels;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 public class StatisticsManager : MonoBehaviour {
     [SerializeField] ScoreManager scoreManager = null;
 
-    async void Start() {
+    IEnumerator Start() {
         // Wait for the client to be logged in before requesting their stats
         while (!PlayFabClientAPI.IsClientLoggedIn()) {
-            await Task.Delay(TimeSpan.FromSeconds(1));
+            yield return new WaitForSeconds(1);
         }
 
         PlayFabClientAPI.GetPlayerStatistics(new GetPlayerStatisticsRequest() {

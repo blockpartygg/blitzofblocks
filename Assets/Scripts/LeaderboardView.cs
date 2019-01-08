@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using PlayFab.ClientModels;
 using System;
+using System.Collections;
 using System.Threading.Tasks;
 using TMPro;
 
@@ -9,9 +10,9 @@ public class LeaderboardView : MonoBehaviour {
     [SerializeField] Transform content = null;
     [SerializeField] GameObject leaderboardEntryPrefab = null;
 
-    async void Start() {
+    IEnumerator Start() {
         while(leaderboardManager.Entries.Count == 0) {
-            await Task.Delay(TimeSpan.FromSeconds(1));
+            yield return new WaitForSeconds(1);
         }
 
         PopulateLeaderboard();
