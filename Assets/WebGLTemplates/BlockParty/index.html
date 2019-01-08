@@ -20,6 +20,7 @@
       UnityLoader.Error.handler = function() {};
       var game = UnityLoader.instantiate("game", "%UNITY_WEBGL_BUILD_URL%", { onProgress: HandleProgress });
     </script>
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131009482-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -35,5 +36,15 @@
       <img class="spinner" src="spinner.gif" />
     </div>
     <script src="gameScaler.js"></script>
+    <!-- UserReport -->
+    <script type="text/javascript">
+      window._urq = window._urq || [];
+      _urq.push(['initSite', '3ddfdcc0-92db-4d60-bffd-5ba066c337a9']);
+      (function() {
+      var ur = document.createElement('script'); ur.type = 'text/javascript'; ur.async = true;
+      ur.src = ('https:' == document.location.protocol ? 'https://cdn.userreport.com/userreport.js' : 'http://cdn.userreport.com/userreport.js');
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ur, s);
+      })();
+    </script>
   </body>
 </html>
