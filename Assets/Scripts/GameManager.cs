@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.Analytics;
 using System.Collections;
 using System.Collections.Generic;
@@ -64,6 +63,7 @@ public class GameManager : MonoBehaviour {
         cursorRenderer.SetVisible(false);
         Time.timeScale = 0.1f;
         announcementManager.ShowGameEnding();
+
         Dictionary<string, object> eventData;
         eventData = new Dictionary<string, object>();
         eventData.Add("Score", scoreManager.Points);

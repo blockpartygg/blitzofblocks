@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Results.unity
     guid: bce13fac1b294cc429b51e615c7a4cc3
+  - enabled: 1
+    path: Assets/Scenes/PlayerNameEntry.unity
+    guid: eed38ee4025eeb940865eb8a81f48b07
+  - enabled: 1
+    path: Assets/Scenes/Leaderboards.unity
+    guid: 134d7bf28fdfdff4b9a89f67497e025d
   m_configObjects: {}

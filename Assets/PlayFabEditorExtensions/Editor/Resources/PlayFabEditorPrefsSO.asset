@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0199c11aa6f514784c5c69cd8378d8, type: 3}
+  m_Name: PlayFabEditorPrefsSO
+  m_EditorClassIdentifier: 
+  DevAccountEmail: ron@blockparty.gg
+  DevAccountToken: tmdobad9c5c84qfuef3phij4zg19dr3bgiz1963zfaa3q5c9p1g15yaxr6oeybca6ofsf9w8bakqhr88sxsj5d59cxk9s81w94z9d9h3y7crnzy5kkaphg95dqj3txkzszcqekddsediqckuaqshjfwks9xbp5hn5qnnzcgt9qufnio6rxrwbs7eqpe1qydds68s8frk
+  SelectedStudio: Block Party
+  SdkPath: Assets/3rdParty/PlayFabSdk
+  EdExPath: 
+  LocalCloudScriptPath: 
+  PanelIsShown: 0
+  curMainMenuIdx: 1
+  curSubMenuIdx: 0
