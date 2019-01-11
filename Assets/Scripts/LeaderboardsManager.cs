@@ -16,6 +16,7 @@ public class LeaderboardsManager : MonoBehaviour {
         PlayFabClientAPI.GetLeaderboard(new GetLeaderboardRequest() {
             StatisticName = "Score",
             StartPosition = 0,
+            MaxResultsCount = 100
         },
         OnSuccess,
         OnError);
