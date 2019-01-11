@@ -5,11 +5,12 @@ public class BlockClearer : MonoBehaviour {
     [SerializeField] FloatReference clearDuration = null;
     [SerializeField] BlockEmptier emptier = null;
     [SerializeField] ScoreManager scoreManager = null;
-    // public AudioSource AudioSource; // Convert this to a GameEventListener
+    [SerializeField] AudioCue audioCue = null;
+    [SerializeField] AudioSource audioSource = null;
     float delayElapsed;
     public float DelayDuration;
     public float Elapsed;
-    // public float Pitch;
+    public float Pitch;
 
     public void Clear() {
         block.State = BlockState.WaitingToClear;
@@ -24,8 +25,8 @@ public class BlockClearer : MonoBehaviour {
                 block.State = BlockState.Clearing;
                 Elapsed = 0f;
                 scoreManager.ScoreMatch();
-                // AudioSource.pitch = Pitch;
-                // AudioSource.Play();
+                audioCue.Pitch = Pitch;
+                audioCue.Play(audioSource);
             }
         }
 

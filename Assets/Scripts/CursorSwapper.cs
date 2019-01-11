@@ -4,7 +4,12 @@ public class CursorSwapper : MonoBehaviour {
     [SerializeField] Cursor cursor = null;
     [SerializeField] BlockManager blockManager = null;
     [SerializeField] IntReference rows = null;
-    bool isActive;
+    [SerializeField] AudioCue cue = null;
+    [SerializeField] AudioSource source = null;
+    [SerializeField] bool isActive;
+    public bool IsActive {
+        get { return isActive; }
+    }
 
     public void SetActive(bool isActive) {
         this.isActive = isActive;
@@ -20,10 +25,7 @@ public class CursorSwapper : MonoBehaviour {
                 rightBlock.Slider.SetupSlide(leftBlock);
                 leftBlock.Slider.Slide(SlideDirection.Right);
                 rightBlock.Slider.Slide(SlideDirection.Left);
-                // TODO: Play the swap sound
-                // AudioSource.clip = SlideClip;
-                // AudioSource.pitch = 1f;
-                // AudioSource.Play();
+                cue.Play(source);
             }    
         }
     }

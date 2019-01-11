@@ -10,14 +10,17 @@ public class GameManager : MonoBehaviour {
     [SerializeField] CursorRenderer cursorRenderer = null;
     [SerializeField] AnnouncementManager announcementManager = null;
     [SerializeField] SceneFader sceneFader = null;
+    [SerializeField] AudioCue musicCue = null;
     [SerializeField] FloatReference startDelay = null;
     [SerializeField] FloatReference endDelay = null;
     WaitForSeconds startWait;
     WaitForSeconds endWait;
+    MusicPlayer musicPlayer;
 
     void Awake() {
         startWait = new WaitForSeconds(startDelay.Value);
         endWait = new WaitForSeconds(endDelay.Value);
+        musicPlayer = FindObjectOfType<MusicPlayer>();
     }
 
     void Start() {
@@ -50,8 +53,9 @@ public class GameManager : MonoBehaviour {
         clockManager.SetActive(true);
         cursorSwapper.SetActive(true);
         announcementManager.ShowGamePlaying();
+        musicPlayer.SetMusic(musicCue);
 
-        while(!clockManager.ShouldEndGame()) {
+        while (!clockManager.ShouldEndGame()) {
             yield return null;
         }
     }

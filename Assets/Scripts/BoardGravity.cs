@@ -5,8 +5,8 @@ public class BoardGravity : MonoBehaviour {
     [SerializeField] MatchDetector matchDetector = null;
     [SerializeField] IntReference columns = null;
     [SerializeField] IntReference rows = null;
-    // public AudioSource AudioSource; // TODO: Convert this to an event
-    // public AudioClip LandClip;
+    [SerializeField] AudioCue audioCue = null;
+    [SerializeField] AudioSource audioSource = null;
 
     void Update() {
         for(int column = 0; column < columns.Value; column++) {
@@ -37,9 +37,7 @@ public class BoardGravity : MonoBehaviour {
                         blockManager.Blocks[column, row].State = BlockState.Idle;
                         blockManager.Blocks[column, row].Faller.JustLanded = true;
                         matchDetector.RequestMatchDetection(blockManager.Blocks[column, row]);
-                        // AudioSource.clip = LandClip; // TODO: Move this into an audio event or something
-                        // AudioSource.pitch = 1f;
-                        // AudioSource.Play();
+                        audioCue.Play(audioSource);
                     }
 
                     blockManager.Blocks[column, row].Faller.JustFell = false;
