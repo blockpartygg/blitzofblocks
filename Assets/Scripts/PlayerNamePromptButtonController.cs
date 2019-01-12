@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
 public class PlayerNamePromptButtonController : MonoBehaviour {
     [SerializeField] TMP_InputField inputField = null;
+    [SerializeField] TMP_Text errorText = null;
     [SerializeField] AuthenticationManager authenticationManager = null;
     [SerializeField] StatisticsManager statisticsManager = null;
     [SerializeField] SceneFader sceneFader = null;
@@ -29,7 +30,7 @@ public class PlayerNamePromptButtonController : MonoBehaviour {
     }
 
     void OnError(PlayFabError error) {
-        Debug.Log(error.GenerateErrorReport());
+        errorText.text = error.GenerateErrorReport();
     }
 
     void Update() {
