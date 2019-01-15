@@ -48,6 +48,9 @@ MonoBehaviour:
   cursorSwapper: {fileID: 0}
   cursorRenderer: {fileID: 0}
   announcementManager: {fileID: 0}
+  sceneFader: {fileID: 0}
+  musicPlayer: {fileID: 0}
+  musicCue: {fileID: 11400000, guid: 41a2f0e25c5f2264f8d3902093cb449c, type: 2}
   startDelay:
     useConstant: 0
     constantValue: 0

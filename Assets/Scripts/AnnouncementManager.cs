@@ -5,6 +5,12 @@ using DG.Tweening;
 
 public class AnnouncementManager : MonoBehaviour {
     [SerializeField] TMP_Text text = null;
+    [SerializeField] AudioCue threeCue = null;
+    [SerializeField] AudioCue twoCue = null;
+    [SerializeField] AudioCue oneCue = null;
+    [SerializeField] AudioCue goCue = null;
+    [SerializeField] AudioCue stopCue = null;
+    [SerializeField] AudioSource source = null;
     WaitForSeconds oneSecondWait;
     WaitForSeconds threeSecondWait;
     
@@ -37,6 +43,7 @@ public class AnnouncementManager : MonoBehaviour {
         text.text = "3";
         text.transform.DOScale(1, 0.25f);
         text.transform.DOScale(0, 0.25f).SetDelay(0.5f);
+        threeCue.Play(source);
 
         yield return oneSecondWait;
     }
@@ -45,6 +52,7 @@ public class AnnouncementManager : MonoBehaviour {
         text.text = "2";
         text.transform.DOScale(1, 0.25f);
         text.transform.DOScale(0, 0.25f).SetDelay(0.5f);
+        twoCue.Play(source);
 
         yield return oneSecondWait;
     }
@@ -53,6 +61,7 @@ public class AnnouncementManager : MonoBehaviour {
         text.text = "1";
         text.transform.DOScale(1, 0.25f);
         text.transform.DOScale(0, 0.25f).SetDelay(0.5f);
+        oneCue.Play(source);
 
         yield return oneSecondWait;
     }
@@ -66,6 +75,7 @@ public class AnnouncementManager : MonoBehaviour {
         text.transform.DOScale(2, 0.25f);
         text.transform.DOScale(0, 0.75f).SetDelay(1f);
         text.DOColor(Color.clear, 0.75f).SetDelay(1f);
+        goCue.Play(source);
 
         yield return new WaitForSeconds(2f);
 
@@ -77,5 +87,6 @@ public class AnnouncementManager : MonoBehaviour {
         text.text = "Time's up!";
         text.color = Color.white;
         text.transform.DOScale(2, 0.25f * Time.timeScale);
+        stopCue.Play(source);
     }
 }

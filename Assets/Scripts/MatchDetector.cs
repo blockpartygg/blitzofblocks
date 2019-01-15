@@ -7,6 +7,8 @@ public class MatchDetector : MonoBehaviour {
     [SerializeField] ScoreManager scoreManager = null;
     [SerializeField] PanelManager panelManager = null; // TODO: Consider converting this to a decoupled event in the future
     [SerializeField] ChainDetector chainDetector = null;
+    [SerializeField] AudioCue audioCue = null;
+    [SerializeField] AudioSource audioSource = null;
     // public AudioSource AudioSource; // TODO: Convert this to an event
     // public AudioClip BonusClip; // TODO: Convert this to an event
     [SerializeField] IntReference boardColumns = null;
@@ -107,7 +109,7 @@ public class MatchDetector : MonoBehaviour {
 
         bool playSound = false;
 
-        // AudioSource.pitch = 1f; // Implement Audio
+        audioCue.Pitch = 1f;
 
         if(matchedBlockCount > minimumMatchLength.Value) {
             scoreManager.ScoreCombo(matchedBlockCount);
@@ -120,14 +122,13 @@ public class MatchDetector : MonoBehaviour {
             int row = matchedBlockCount > minimumMatchLength.Value ? block.Row + 1 : block.Row;
             if(row <= boardRows.Value - 1) { // BUG: Chains that occur on the top row won't show a panel
                 panelManager.Panels[block.Column, row].Play(PanelType.Chain, chainDetector.ChainLength);
-                // AudioSource.pitch = Mathf.Min(0.75f + ChainDetector.ChainLength * 0.25f, 2f); // TODO: Implement Audio
+                audioCue.Pitch = Mathf.Min(0.75f + chainDetector.ChainLength * 0.25f, 2f);
             }
             playSound = true;
         }
 
         if(playSound) {
-            // AudioSource.clip = BonusClip; // TODO: Implement Audio
-            // AudioSource.Play();
+            audioCue.Play(audioSource);
         }
     }
 }
