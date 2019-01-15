@@ -47,4 +47,8 @@ public class MusicPlayer : MonoBehaviour {
             currentCue.Play(audioSource);
         }
     }
+
+    public void Stop() {
+        audioSource.Stop();
+    }
 }

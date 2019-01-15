@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour {
         cursorRenderer.SetVisible(false);
         Time.timeScale = 0.1f;
         announcementManager.ShowGameEnding();
+        musicPlayer.Stop();
 
         Dictionary<string, object> eventData;
         eventData = new Dictionary<string, object>();
