@@ -12,12 +12,26 @@
     <link rel="stylesheet" href="style.css">
     <script src="%UNITY_WEBGL_LOADER_URL%"></script>
     <script>
+      // Setup loading progress indicator
       function HandleProgress(gameInstance, progress) {
         if(progress == 1) {
           document.getElementById("loading").style.display = "none";
         }
       }
+
+      // Override error handler
       UnityLoader.Error.handler = function() {};
+
+      // Suppress mobile compatibility warning
+      var compatibilityCheck = UnityLoader.compatibilityCheck;
+      UnityLoader.compatibilityCheck = function() {
+        var mobile = UnityLoader.SystemInfo.mobile;
+        UnityLoader.SystemInfo.mobile = false;
+        compatibilityCheck.apply(this, arguments);
+        UnityLoader.SystemInfo.mobile = mobile;
+      }
+
+      // Load the Unity game
       var game = UnityLoader.instantiate("game", "%UNITY_WEBGL_BUILD_URL%", { onProgress: HandleProgress });
     </script>
     <!-- Google Analytics -->
