@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2bc9d87c9c8cdb46b704c2aa8229034, type: 3}
   m_Name: Announcement2
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: e95796bddbde6a241bd0889436afdf9c, type: 3}
+  clip: {fileID: 8300000, guid: d34f0bf293aeda840afc6d623b815b68, type: 3}
   Volume: 1
   Pitch: 1

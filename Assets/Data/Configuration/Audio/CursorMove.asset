@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2bc9d87c9c8cdb46b704c2aa8229034, type: 3}
-  m_Name: CursorMove
+  m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: e95796bddbde6a241bd0889436afdf9c, type: 3}
+  clip: {fileID: 8300000, guid: 245c70f76347e9045903a90f0f6a484b, type: 3}
   Volume: 1
   Pitch: 1

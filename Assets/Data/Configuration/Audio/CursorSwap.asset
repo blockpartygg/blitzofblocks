@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2bc9d87c9c8cdb46b704c2aa8229034, type: 3}
   m_Name: CursorSwap
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: e95796bddbde6a241bd0889436afdf9c, type: 3}
-  volume: 1
-  pitch: 1
+  clip: {fileID: 8300000, guid: e14161ed46008d049b803e8866a1e303, type: 3}
+  Volume: 1
+  Pitch: 1
