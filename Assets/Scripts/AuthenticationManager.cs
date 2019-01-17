@@ -15,7 +15,7 @@ public class AuthenticationManager : MonoBehaviour {
                 }
             };
 
-#if UNITY_IOS
+#if !UNITY_EDITOR && UNITY_IOS
             string deviceId = UnityEngine.iOS.Device.vendorIdentifier;
             var request = new LoginWithIOSDeviceIDRequest {
                 DeviceId = deviceId,
@@ -54,7 +54,9 @@ public class AuthenticationManager : MonoBehaviour {
     }
 
     void OnLoginSuccess(LoginResult result) {
-        DisplayName = result.InfoResultPayload.PlayerProfile.DisplayName;
+        if(result.InfoResultPayload.PlayerProfile != null) {
+            DisplayName = result.InfoResultPayload.PlayerProfile.DisplayName;
+        }
     }
 
     void OnGetProfileSuccess(GetPlayerProfileResult result) {
