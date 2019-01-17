@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class AnnouncementManager : MonoBehaviour {
     [SerializeField] TMP_Text text = null;
+    [SerializeField] StringReference objectiveString = null;
     [SerializeField] AudioCue threeCue = null;
     [SerializeField] AudioCue twoCue = null;
     [SerializeField] AudioCue oneCue = null;
@@ -33,7 +34,8 @@ public class AnnouncementManager : MonoBehaviour {
     }
 
     IEnumerator RunModeObjectiveCoroutine() {
-        text.text = "Time Attack\n<size=64>Score as many points in 2 minutes as possible</size>";
+        text.text = objectiveString.Value;
+        text.text = text.text.Replace("\\n", "\n");
         text.transform.DOScale(0, 0.25f).SetDelay(2);
 
         yield return threeSecondWait;

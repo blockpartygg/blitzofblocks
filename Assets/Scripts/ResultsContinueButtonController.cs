@@ -6,11 +6,13 @@ public class ResultsContinueButtonController : MonoBehaviour {
     [SerializeField] AuthenticationManager authenticationManager = null;
     [SerializeField] StatisticsManager statisticsManager = null;
     [SerializeField] SceneFader sceneFader = null;
+    [SerializeField] string playerNameEntrySceneToLoad = "PlayerNameEntry";
+    [SerializeField] string leaderboardsSceneToLoad = "Leaderboards";
 
     public void Continue() {
         // If the logged in player doesn't have a display name, load the player name entry scene.
         if(string.IsNullOrEmpty(authenticationManager.DisplayName)) {
-            sceneFader.FadeToScene("PlayerNameEntry");
+            sceneFader.FadeToScene(playerNameEntrySceneToLoad);
         }
 
         // Otherwise, update stats from the latest game, and load the leaderboards scene.
@@ -20,7 +22,7 @@ public class ResultsContinueButtonController : MonoBehaviour {
     }
 
     void OnUpdateStatisticsResult(UpdatePlayerStatisticsResult result) {
-        sceneFader.FadeToScene("Leaderboards");
+        sceneFader.FadeToScene(leaderboardsSceneToLoad);
     }
 
     void OnError(PlayFabError error) {

@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa6094143f5f6d3499a824af76aa328b, type: 3}
-  m_Name: BoardRows
+  m_Name: BoardRowsMobile
   m_EditorClassIdentifier: 
   Value: 10

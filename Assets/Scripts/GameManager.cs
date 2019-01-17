@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] AudioCue musicCue = null;
     [SerializeField] FloatReference startDelay = null;
     [SerializeField] FloatReference endDelay = null;
+    [SerializeField] string nextSceneToLoad = "Results";
     WaitForSeconds startWait;
     WaitForSeconds endWait;
     MusicPlayer musicPlayer;
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour {
         yield return StartCoroutine(RunGameEnding());
 
         Time.timeScale = 1f;
-        sceneFader.FadeToScene("Results");
+        sceneFader.FadeToScene(nextSceneToLoad);
     }
 
     IEnumerator RunGameStarting() {
