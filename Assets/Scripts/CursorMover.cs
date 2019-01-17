@@ -15,7 +15,7 @@ public class CursorMover : MonoBehaviour {
             cursor.Column += (int)direction.x;
             playSound = true;
         }
-
+        
         // Since the board has an invisible top row at y = rows, constrain position from 0 to rows - 1
         if(cursor.Row + direction.y >= 0 && cursor.Row + direction.y <= rows.Value - 1) {
             cursor.Row += (int)direction.y;
@@ -25,5 +25,9 @@ public class CursorMover : MonoBehaviour {
         if(playSound) {
             audioCue.Play(audioSource);
         }
+    }
+
+    public void MoveTo(int column, int row) {
+        
     }
 }

@@ -122,7 +122,9 @@ GameObject:
   - component: {fileID: 201989043687235315}
   - component: {fileID: 8857045061520833681}
   - component: {fileID: 8798598814366743270}
+  - component: {fileID: 823714722507474876}
   - component: {fileID: 5694494935294891123}
+  - component: {fileID: 9203716896571572703}
   - component: {fileID: 8024166237204650136}
   - component: {fileID: 4285114445875295321}
   m_Layer: 0
@@ -190,6 +192,8 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 0d38f9d9b14b6ec4c8b0acccec46c42e, type: 2}
+  audioCue: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &8798598814366743270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,13 +207,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursor: {fileID: 201989043687235315}
+  selector: {fileID: 823714722507474876}
   blockManager: {fileID: 0}
+  columns:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: ea42521d3998d6b44b8606aaa2138828, type: 2}
   rows:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 0d38f9d9b14b6ec4c8b0acccec46c42e, type: 2}
   cue: {fileID: 11400000, guid: c52334228143009488368b9828843f01, type: 2}
   source: {fileID: 4285114445875295321}
+  isActive: 0
+--- !u!114 &823714722507474876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6857440691608541360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89da4c76539870a40b19eea70736fc3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursor: {fileID: 201989043687235315}
+  boardRows:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 0d38f9d9b14b6ec4c8b0acccec46c42e, type: 2}
 --- !u!114 &5694494935294891123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +249,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a44197c5bd378546b466ad048fcdb50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mover: {fileID: 8857045061520833681}
+  swapper: {fileID: 8798598814366743270}
+--- !u!114 &9203716896571572703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6857440691608541360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd87a8792d2def043906d8bcfd40265e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 0}
+  cursor: {fileID: 201989043687235315}
+  selector: {fileID: 823714722507474876}
   mover: {fileID: 8857045061520833681}
   swapper: {fileID: 8798598814366743270}
 --- !u!114 &8024166237204650136
