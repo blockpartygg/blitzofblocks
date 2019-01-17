@@ -11,6 +11,7 @@ public class PlayerNamePromptButtonController : MonoBehaviour {
     [SerializeField] AuthenticationManager authenticationManager = null;
     [SerializeField] StatisticsManager statisticsManager = null;
     [SerializeField] SceneFader sceneFader = null;
+    [SerializeField] string sceneToLoad = "Leaderboards";
     Button button;
 
     void Awake() {
@@ -26,7 +27,7 @@ public class PlayerNamePromptButtonController : MonoBehaviour {
     }
 
     void OnUpdateStatisticsResult(UpdatePlayerStatisticsResult result) {
-        sceneFader.FadeToScene("Leaderboards");
+        sceneFader.FadeToScene(sceneToLoad);
     }
 
     void OnError(PlayFabError error) {
