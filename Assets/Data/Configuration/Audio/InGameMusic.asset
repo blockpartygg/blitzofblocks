@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2bc9d87c9c8cdb46b704c2aa8229034, type: 3}
   m_Name: InGameMusic
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 60b0bbd57c0e78f448d4511626dd80da, type: 3}
-  Volume: 0.513
+  clip: {fileID: 8300000, guid: 20368a58332bf9a49b96aebcf178aa65, type: 3}
+  Volume: 1
   Pitch: 1
