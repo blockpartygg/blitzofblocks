@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PostGameMusic
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 18ec5131739f11347affa12dc6b497dd, type: 3}
-  Volume: 1
+  Volume: 0.414
   Pitch: 1
