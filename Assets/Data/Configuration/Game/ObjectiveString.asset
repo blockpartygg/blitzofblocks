@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3678282ab777b348897bfb14296bc36, type: 3}
   m_Name: ObjectiveString
   m_EditorClassIdentifier: 
-  Value: Time Attack\n<size=32>Score as many points in 2 minutes as possible</size>
+  Value: Time Attack\n<size=64>Score as many points in 2 minutes as possible</size>
