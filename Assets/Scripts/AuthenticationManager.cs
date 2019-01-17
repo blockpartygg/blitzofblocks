@@ -15,7 +15,7 @@ public class AuthenticationManager : MonoBehaviour {
                 }
             };
 
-#if UNITY_IPHONE
+#if UNITY_IOS
             string deviceId = UnityEngine.iOS.Device.vendorIdentifier;
             var request = new LoginWithIOSDeviceIDRequest {
                 DeviceId = deviceId,
