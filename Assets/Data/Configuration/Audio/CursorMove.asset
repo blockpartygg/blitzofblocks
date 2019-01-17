@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CursorMove
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 245c70f76347e9045903a90f0f6a484b, type: 3}
-  Volume: 1
+  Volume: 0.3
   Pitch: 1

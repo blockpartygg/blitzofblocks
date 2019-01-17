@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TitleMusic
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: facaba2f1dd6a9948bf41151e39cdeb8, type: 3}
-  Volume: 1
+  Volume: 0.3
   Pitch: 1

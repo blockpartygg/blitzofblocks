@@ -2,7 +2,7 @@
 
 [CreateAssetMenu]
 public class AudioCue : ScriptableObject {
-    [SerializeField] AudioClip clip;
+    [SerializeField] AudioClip clip = null;
     [Range(0, 1f)] public float Volume = 1;
     [Range(0.1f, 3f)] public float Pitch = 1;
 

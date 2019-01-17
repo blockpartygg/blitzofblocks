@@ -1436,6 +1436,11 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 1568038654}
+    - target: {fileID: 1216459450141902606, guid: 493a35a4027fdf04195d3d84ed7ba478,
+        type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1568038654}
     - target: {fileID: 7220955207723221357, guid: 493a35a4027fdf04195d3d84ed7ba478,
         type: 3}
       propertyPath: boardRows.variable

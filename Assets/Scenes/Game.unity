@@ -669,6 +669,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1044357194}
+  objectiveString:
+    useConstant: 0
+    constantValue: 
+    variable: {fileID: 11400000, guid: 5fff084f911c52943be146bda443a738, type: 2}
   threeCue: {fileID: 11400000, guid: 9e17de65a38911d4bb344318d6cd6a90, type: 2}
   twoCue: {fileID: 11400000, guid: 6cfa108c8be426d4bb268773acbcb9d2, type: 2}
   oneCue: {fileID: 11400000, guid: fc83424002de96046b0391be2a9199e2, type: 2}

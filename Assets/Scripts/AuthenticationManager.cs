@@ -8,6 +8,22 @@ public class AuthenticationManager : MonoBehaviour {
 
     void Start() {
         if(!PlayFabClientAPI.IsClientLoggedIn()) {
+            var infoRequestParameters = new GetPlayerCombinedInfoRequestParams() {
+                GetPlayerProfile = true,
+                ProfileConstraints = new PlayerProfileViewConstraints() {
+                    ShowDisplayName = true
+                }
+            };
+
+#if UNITY_IPHONE
+            string deviceId = UnityEngine.iOS.Device.vendorIdentifier;
+            var request = new LoginWithIOSDeviceIDRequest {
+                DeviceId = deviceId,
+                CreateAccount = true,
+                InfoRequestParameters = infoRequestParameters
+            };
+            PlayFabClientAPI.LoginWithIOSDeviceID(request, OnLoginSuccess, OnError);  
+#else
             string customId;
             if (!PlayerPrefs.HasKey("customId")) {
                 Guid guid = Guid.NewGuid();
@@ -21,14 +37,10 @@ public class AuthenticationManager : MonoBehaviour {
             var request = new LoginWithCustomIDRequest {
                 CustomId = customId,
                 CreateAccount = true,
-                InfoRequestParameters = new GetPlayerCombinedInfoRequestParams() {
-                    GetPlayerProfile = true,
-                    ProfileConstraints = new PlayerProfileViewConstraints() {
-                        ShowDisplayName = true
-                    }
-                }
+                InfoRequestParameters = infoRequestParameters
             };
             PlayFabClientAPI.LoginWithCustomID(request, OnLoginSuccess, OnError);
+#endif
         }
         else {
             if(string.IsNullOrEmpty(DisplayName)) {
