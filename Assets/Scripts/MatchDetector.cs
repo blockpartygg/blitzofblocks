@@ -5,12 +5,10 @@ public class MatchDetector : MonoBehaviour {
     Queue<Block> matchDetectionRequests;
     [SerializeField] BlockManager blockManager = null;
     [SerializeField] ScoreManager scoreManager = null;
-    [SerializeField] PanelManager panelManager = null; // TODO: Consider converting this to a decoupled event in the future
+    [SerializeField] PanelManager panelManager = null;
     [SerializeField] ChainDetector chainDetector = null;
     [SerializeField] AudioCue audioCue = null;
     [SerializeField] AudioSource audioSource = null;
-    // public AudioSource AudioSource; // TODO: Convert this to an event
-    // public AudioClip BonusClip; // TODO: Convert this to an event
     [SerializeField] IntReference boardColumns = null;
     [SerializeField] IntReference boardRows = null;
     [SerializeField] IntReference minimumMatchLength = null;
@@ -52,7 +50,7 @@ public class MatchDetector : MonoBehaviour {
         }
 
         int topRow = block.Row + 1;
-        while(topRow < boardColumns.Value && blockManager.Blocks[block.Column, topRow].State == BlockState.Idle && blockManager.Blocks[block.Column, topRow].Type == block.Type) {
+        while(topRow < boardRows.Value && blockManager.Blocks[block.Column, topRow].State == BlockState.Idle && blockManager.Blocks[block.Column, topRow].Type == block.Type) {
             topRow++;
         }
 

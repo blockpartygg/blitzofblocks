@@ -17,7 +17,7 @@ public class BoardRenderer : MonoBehaviour {
         spriteMaskTransform.localScale = new Vector3(boardColumns.Value, boardRows.Value, 1f);
 
         blockRoot.position = new Vector3(-0.5f * (boardColumns.Value - 1), 0, 0);
-        cursorRoot.position = new Vector3(Mathf.Ceil(-0.5f * (boardColumns.Value - 1)), 0.5f, -0.1f);
+        cursorRoot.position = new Vector3(-0.5f * (boardColumns.Value - 1), 0, -0.1f);
         panelRoot.position = new Vector3(-0.5f * (boardColumns.Value - 1), 0, -0.5f);
     }
 }

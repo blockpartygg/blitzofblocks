@@ -207,7 +207,7 @@ MonoBehaviour:
   spriteTransform: {fileID: 4258392760055187490}
   spriteMaskTransform: {fileID: 8355002857827203988}
   blockRoot: {fileID: 8907980772073727146}
-  cursorRoot: {fileID: 6741891624818142566}
+  cursorRoot: {fileID: 9046522099142893033}
   panelRoot: {fileID: 7414606170648571441}
   boardColumns:
     useConstant: 0
@@ -682,9 +682,9 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 8024166237150430929}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &6741891624818142566 stripped
+--- !u!4 &9046522099142893033 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3660179769976138679, guid: ed412f6ca1c79354eb3ccf872ea710f3,
+  m_CorrespondingSourceObject: {fileID: 1355622275221216056, guid: ed412f6ca1c79354eb3ccf872ea710f3,
     type: 3}
   m_PrefabInstance: {fileID: 8024166237150430929}
   m_PrefabAsset: {fileID: 0}

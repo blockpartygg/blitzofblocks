@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour {
     IEnumerator RunGameStarting() {
         clockManager.SetActive(false);
         clockManager.ResetSecondsRemaining();
+        cursorRenderer.SetKeyboardVisible(true);
+        cursorRenderer.SetMouseVisible(false);
         cursorSwapper.SetActive(false);
         announcementManager.ShowGameStarting();
         AnalyticsEvent.GameStart();
@@ -65,7 +67,8 @@ public class GameManager : MonoBehaviour {
         scoreManager.SetActive(false);
         clockManager.SetActive(false);
         cursorSwapper.SetActive(false);
-        cursorRenderer.SetVisible(false);
+        cursorRenderer.SetKeyboardVisible(false);
+        cursorRenderer.SetMouseVisible(false);
         Time.timeScale = 0.1f;
         announcementManager.ShowGameEnding();
         musicPlayer.Stop();

@@ -2,9 +2,25 @@ using UnityEngine;
 using System;
 
 public class Cursor : MonoBehaviour {
-    public int Column, Row;
+    [SerializeField] int column, row;
+    [SerializeField] Block selectedBlock;
 
-    Block selectedBlock;
+    public int Column {
+        get { return column; }
+        set {
+            column = value;
+            CursorMoved?.Invoke(this, null);
+        }
+    }
+    
+    public int Row {
+        get { return row; }
+        set {
+            row = value;
+            CursorMoved?.Invoke(this, null);
+        }
+    }
+
     public Block SelectedBlock {
         get { return selectedBlock; }
         set {
@@ -13,6 +29,7 @@ public class Cursor : MonoBehaviour {
         }
     }
 
+    public event EventHandler CursorMoved;
     public event EventHandler SelectedBlockChanged;
     [SerializeField] IntReference columns = null;
     [SerializeField] IntReference rows = null;
