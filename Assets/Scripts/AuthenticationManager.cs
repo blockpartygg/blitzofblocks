@@ -15,47 +15,43 @@ public class AuthenticationManager : MonoBehaviour {
                 }
             };
 
-#if !UNITY_EDITOR && UNITY_IOS
-            //string deviceId = UnityEngine.iOS.Device.vendorIdentifier;
-            var request = new LoginWithIOSDeviceIDRequest() {
-                //DeviceId = deviceId,
-                DeviceId = SystemInfo.deviceUniqueIdentifier,
-                DeviceModel = SystemInfo.deviceModel,
-                OS = SystemInfo.operatingSystem,
-                TitleId = "DF41",
-                CreateAccount = true,
-                InfoRequestParameters = infoRequestParameters
-            };
-            Debug.Log("Attempting login");
-            try {
+            if (Application.platform == RuntimePlatform.IPhonePlayer)
+            {
+                var request = new LoginWithIOSDeviceIDRequest()
+                {
+                    DeviceId = SystemInfo.deviceUniqueIdentifier,
+                    DeviceModel = SystemInfo.deviceModel,
+                    OS = SystemInfo.operatingSystem,
+                    CreateAccount = true,
+                    InfoRequestParameters = infoRequestParameters
+                };
 
-            PlayFabClientAPI.LoginWithIOSDeviceID(request, OnLoginSuccess, OnError);  
-            } catch(Exception e) {
-            Debug.Log("Caught error:");
-            Debug.Log(e);
+                PlayFabClientAPI.LoginWithIOSDeviceID(request, OnLoginSuccess, OnError);
             }
-#else
-            string customId;
-            if (!PlayerPrefs.HasKey("customId")) {
-                Guid guid = Guid.NewGuid();
-                customId = guid.ToString();
-                PlayerPrefs.SetString("customId", customId);
-            }
-            else {
-                customId = PlayerPrefs.GetString("customId");
-                Debug.Log("CustomId is " + customId);
-            }
+            else
+            {
+                string customId;
+                if (!PlayerPrefs.HasKey("customId"))
+                {
+                    Guid guid = Guid.NewGuid();
+                    customId = guid.ToString();
+                    PlayerPrefs.SetString("customId", customId);
+                }
+                else
+                {
+                    customId = PlayerPrefs.GetString("customId");
+                }
 
-            var request = new LoginWithCustomIDRequest() {
-                CustomId = customId,
-                CreateAccount = true,
-                InfoRequestParameters = infoRequestParameters
-            };
-            PlayFabClientAPI.LoginWithCustomID(request, OnLoginSuccess, OnError);
-#endif
+                var request = new LoginWithCustomIDRequest()
+                {
+                    CustomId = customId,
+                    CreateAccount = true,
+                    InfoRequestParameters = infoRequestParameters
+                };
+                PlayFabClientAPI.LoginWithCustomID(request, OnLoginSuccess, OnError);
+            }
         }
         else {
-            Debug.Log("Already logged in. Getting profile");
             if(string.IsNullOrEmpty(DisplayName)) {
                 PlayFabClientAPI.GetPlayerProfile(new GetPlayerProfileRequest() {
                     ProfileConstraints = new PlayerProfileViewConstraints() {
@@ -67,12 +63,9 @@ public class AuthenticationManager : MonoBehaviour {
     }
 
     void OnLoginSuccess(LoginResult result) {
-        Debug.Log("OnLoginSuccess");
         if(result != null) {
             if(result.InfoResultPayload != null) {
                 if(result.InfoResultPayload.PlayerProfile != null) {
-                    Debug.Log("Successfully logged in");
-                    Debug.Log("Setting display name to " + result.InfoResultPayload.PlayerProfile.DisplayName);
                     DisplayName = result.InfoResultPayload.PlayerProfile.DisplayName;
                 }
                 else {
@@ -89,26 +82,20 @@ public class AuthenticationManager : MonoBehaviour {
     }
 
     void OnGetProfileSuccess(GetPlayerProfileResult result) {
-        Debug.Log("OnGetProfileSuccess");
-        if(result != null)
-        {
-            if(result.PlayerProfile != null)
-            {
+        if(result != null) {
+            if(result.PlayerProfile != null) {
                 DisplayName = result.PlayerProfile.DisplayName;
             }
-            else
-            {
+            else {
                 Debug.LogError("result.PlayerProfile is null");
             }
         }
-        else
-        {
+        else {
             Debug.Log("result is null");
         }
     }
 
     void OnError(PlayFabError error) {
-        Debug.Log("OnError");
         Debug.LogError(error.GenerateErrorReport());
     }
 
