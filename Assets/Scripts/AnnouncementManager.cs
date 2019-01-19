@@ -86,7 +86,7 @@ public class AnnouncementManager : MonoBehaviour {
 
     public void ShowGameEnding() {
         text.enabled = true;
-        text.text = "Time's up!";
+        text.text = "<size=80%>Time's up!</size>";
         text.color = Color.white;
         text.transform.DOScale(2, 0.25f * Time.timeScale);
         stopCue.Play(source);

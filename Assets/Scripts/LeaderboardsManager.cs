@@ -10,6 +10,7 @@ public class LeaderboardsManager : MonoBehaviour {
     IEnumerator Start() {
         // Wait for the client to be logged in before requesting the leaderboard
         while(!PlayFabClientAPI.IsClientLoggedIn()) {
+            Debug.Log("Waiting until client is logged in");
             yield return new WaitForSeconds(1);
         }
 

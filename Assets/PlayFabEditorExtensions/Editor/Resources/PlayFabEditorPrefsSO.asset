@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayFabEditorPrefsSO
   m_EditorClassIdentifier: 
   DevAccountEmail: ron@blockparty.gg
-  DevAccountToken: tmdobad9c5c84qfuef3phij4zg19dr3bgiz1963zfaa3q5c9p1g15yaxr6oeybca6ofsf9w8bakqhr88sxsj5d59cxk9s81w94z9d9h3y7crnzy5kkaphg95dqj3txkzszcqekddsediqckuaqshjfwks9xbp5hn5qnnzcgt9qufnio6rxrwbs7eqpe1qydds68s8frk
+  DevAccountToken: hsnkskbafszhc5mpfgxmu87x6kes53dg78z6cc6niwbfkpwxz9agrjxwyjnnh6qmrtai43ewgeqqujuo6cuhxn35sj1gzcyqmrfn7ko7f3o9sk5aju8197jd5fpgw845wdwhghxspe8d41h9wg6f46sz3e8f3ronuypmg7q4mpaj7bxeh4oknsupebbtjhqfef13z1bj
   SelectedStudio: Block Party
   SdkPath: Assets/3rdParty/PlayFabSdk
   EdExPath: 

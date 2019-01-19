@@ -1,5 +1,5 @@
 mergeInto(LibraryManager.library, {
-    OpenURL: function(url) {
+    OpenURLInNewTab: function(url) {
         window.open(url);
     }
 });

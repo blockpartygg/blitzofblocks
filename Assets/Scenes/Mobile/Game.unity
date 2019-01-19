@@ -147,8 +147,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -304, y: -140}
-  m_SizeDelta: {x: 500, y: 64}
+  m_AnchoredPosition: {x: -304, y: -250}
+  m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &63159287
 MonoBehaviour:
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 516
+  m_textAlignment: 260
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -389,8 +389,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 203.99997, y: -140}
-  m_SizeDelta: {x: 300, y: 64}
+  m_AnchoredPosition: {x: 203.99997, y: -250}
+  m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &573762024
 MonoBehaviour:
@@ -450,7 +450,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 513
+  m_textAlignment: 257
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1474,6 +1474,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3490594652877889121, guid: 493a35a4027fdf04195d3d84ed7ba478,
+        type: 3}
+      propertyPath: m_Name
+      value: Cursors
+      objectReference: {fileID: 0}
     - target: {fileID: 487309680530788966, guid: 493a35a4027fdf04195d3d84ed7ba478,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1483,11 +1488,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490594652877889121, guid: 493a35a4027fdf04195d3d84ed7ba478,
-        type: 3}
-      propertyPath: m_Name
-      value: Cursors
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 493a35a4027fdf04195d3d84ed7ba478, type: 3}
