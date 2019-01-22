@@ -38,3 +38,6 @@ sysinfo.txt
 *.unitypackage
 
 .DS_Store
+
+# Android build stuff
+.gradle/

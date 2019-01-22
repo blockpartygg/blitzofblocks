@@ -15,10 +15,8 @@ public class AuthenticationManager : MonoBehaviour {
                 }
             };
 
-            if (Application.platform == RuntimePlatform.IPhonePlayer)
-            {
-                var request = new LoginWithIOSDeviceIDRequest()
-                {
+            if (Application.platform == RuntimePlatform.IPhonePlayer) {
+                var request = new LoginWithIOSDeviceIDRequest() {
                     DeviceId = SystemInfo.deviceUniqueIdentifier,
                     DeviceModel = SystemInfo.deviceModel,
                     OS = SystemInfo.operatingSystem,
@@ -28,22 +26,29 @@ public class AuthenticationManager : MonoBehaviour {
 
                 PlayFabClientAPI.LoginWithIOSDeviceID(request, OnLoginSuccess, OnError);
             }
-            else
-            {
+            else if(Application.platform == RuntimePlatform.Android) {
+                var request = new LoginWithAndroidDeviceIDRequest() {
+                    AndroidDeviceId = SystemInfo.deviceUniqueIdentifier,
+                    AndroidDevice = SystemInfo.deviceModel,
+                    OS = SystemInfo.operatingSystem,
+                    CreateAccount = true,
+                    InfoRequestParameters = infoRequestParameters
+                };
+
+                PlayFabClientAPI.LoginWithAndroidDeviceID(request, OnLoginSuccess, OnError);
+            }
+            else {
                 string customId;
-                if (!PlayerPrefs.HasKey("customId"))
-                {
+                if (!PlayerPrefs.HasKey("customId")) {
                     Guid guid = Guid.NewGuid();
                     customId = guid.ToString();
                     PlayerPrefs.SetString("customId", customId);
                 }
-                else
-                {
+                else {
                     customId = PlayerPrefs.GetString("customId");
                 }
 
-                var request = new LoginWithCustomIDRequest()
-                {
+                var request = new LoginWithCustomIDRequest() {
                     CustomId = customId,
                     CreateAccount = true,
                     InfoRequestParameters = infoRequestParameters
