@@ -1487,6 +1487,46 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Audio
       objectReference: {fileID: 0}
+    - target: {fileID: 3581376947830283369, guid: d596b5cfde6726840bb773a588aadd3d,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581376947830283369, guid: d596b5cfde6726840bb773a588aadd3d,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581376947830283369, guid: d596b5cfde6726840bb773a588aadd3d,
+        type: 3}
+      propertyPath: m_text
+      value: 'Audio: On'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581376947830283369, guid: d596b5cfde6726840bb773a588aadd3d,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581376947830283369, guid: d596b5cfde6726840bb773a588aadd3d,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581376947830283369, guid: d596b5cfde6726840bb773a588aadd3d,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581376947830283369, guid: d596b5cfde6726840bb773a588aadd3d,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581376947830283369, guid: d596b5cfde6726840bb773a588aadd3d,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d596b5cfde6726840bb773a588aadd3d, type: 3}
 --- !u!1 &899720232 stripped
