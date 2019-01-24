@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6101163364367581130}
-  - component: {fileID: 6101163364367581141}
   m_Layer: 0
   m_Name: Root
   m_TagString: Untagged
@@ -33,25 +32,6 @@ Transform:
   m_Father: {fileID: 6101163365759769895}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &6101163364367581141
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6101163364367581131}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: eaff2d30291f4eb4d848ec876367feaf, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6101163364950076362
 GameObject:
   m_ObjectHideFlags: 0
@@ -4890,10 +4870,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   block: {fileID: 6101163365759769892}
-  clearing: {fileID: 6101163365759769903}
+  idle: {fileID: 6101163365759769894}
+  sliding: {fileID: 6101163365759769891}
   falling: {fileID: 3670811090620121890}
   matched: {fileID: 6101163365759769901}
-  sliding: {fileID: 6101163365759769891}
+  clearing: {fileID: 6101163365759769903}
+  boardRaiseDuration:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 73e3616a59dd32c4ab6e4d4fde8f8fa3, type: 2}
+  RaiseTranslation: {x: 0, y: 0, z: 0}
 --- !u!114 &6101163365759769889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4922,6 +4908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   block: {fileID: 6101163365759769892}
+  blockRenderer: {fileID: 6101163365759769893}
   rootTransform: {fileID: 6101163364367581130}
   spriteRenderer: {fileID: 5551408915173733371}
   types: {fileID: 11400000, guid: 722583f8196968b45b11235c02e46fd0, type: 2}
@@ -4938,6 +4925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   block: {fileID: 6101163365759769892}
+  blockRenderer: {fileID: 6101163365759769893}
   slider: {fileID: 6101163365759769888}
   slideDuration:
     useConstant: 0
@@ -4957,6 +4945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   block: {fileID: 6101163365759769892}
+  blockRenderer: {fileID: 6101163365759769893}
   faller: {fileID: 251623103000063542}
   fallDuration:
     useConstant: 0
@@ -4977,7 +4966,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   block: {fileID: 6101163365759769892}
+  blockRenderer: {fileID: 6101163365759769893}
   matcher: {fileID: 6101163365759769890}
+  rootTransform: {fileID: 6101163364367581130}
   matchFlashDuration:
     useConstant: 0
     constantValue: 0

@@ -296,7 +296,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursor: {fileID: 201989043687235315}
-  renderer: {fileID: 8024166237204650136}
   columns:
     useConstant: 0
     constantValue: 0
@@ -364,6 +363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mover: {fileID: 8857045061520833681}
   swapper: {fileID: 8798598814366743270}
+  raiser: {fileID: 0}
 --- !u!114 &9203716896571572703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,6 +397,11 @@ MonoBehaviour:
   mouseRoot: {fileID: 4831682863343945079}
   keyboardSpriteRenderer: {fileID: 8174947304944726616}
   mouseSpriteRenderer: {fileID: 400392222543131360}
+  raiser: {fileID: 0}
+  boardRaiseDuration:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 73e3616a59dd32c4ab6e4d4fde8f8fa3, type: 2}
   IsVisible: 1
 --- !u!82 &4285114445875295321
 AudioSource:

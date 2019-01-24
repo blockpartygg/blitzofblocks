@@ -3,6 +3,7 @@ using System;
 
 public class BlockRenderer_Falling : MonoBehaviour {
     [SerializeField] Block block = null;
+    [SerializeField] BlockRenderer blockRenderer = null;
     [SerializeField] BlockFaller faller = null;
     [SerializeField] FloatReference fallDuration = null;
     [SerializeField] Transform rootTransform = null;
@@ -28,7 +29,7 @@ public class BlockRenderer_Falling : MonoBehaviour {
         if(block.State == BlockState.Falling) {
             float timePercentage = faller.Elapsed / fallDuration.Value;
             Vector3 fallTranslation = new Vector3(0, -1 * timePercentage);
-            rootTransform.position = rootTransform.parent.position + fallTranslation;
+            rootTransform.position = rootTransform.parent.position + blockRenderer.RaiseTranslation + fallTranslation;
         }
     }
 }

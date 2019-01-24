@@ -3,6 +3,7 @@ using UnityEngine;
 public class CursorController_Keyboard : MonoBehaviour {
     [SerializeField] CursorMover mover = null;
     [SerializeField] CursorSwapper swapper = null;
+    [SerializeField] BoardRaiser raiser = null;
 
     void Update() {
         DetectMovement();
@@ -39,7 +40,7 @@ public class CursorController_Keyboard : MonoBehaviour {
 
     void DetectRaise() {
         if(Input.GetKeyDown(KeyCode.Return)) {
-            // TODO: Raiser.Raise
+            raiser.ManuallyRaise();
         }
     }
 }

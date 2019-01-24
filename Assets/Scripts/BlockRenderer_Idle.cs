@@ -3,6 +3,7 @@ using System;
 
 public class BlockRenderer_Idle : MonoBehaviour {
     [SerializeField] Block block = null;
+    [SerializeField] BlockRenderer blockRenderer = null;
     [SerializeField] Transform rootTransform = null;
     [SerializeField] SpriteRenderer spriteRenderer = null;
     [SerializeField] BlockTypes types = null;
@@ -24,11 +25,11 @@ public class BlockRenderer_Idle : MonoBehaviour {
     }
 
     void UpdateRenderState() {
-        rootTransform.position = rootTransform.parent.position;
-
         if(block.State == BlockState.Idle) {
             spriteRenderer.enabled = true;
         }
+
+        UpdateRenderer();
     }
 
     void UpdateRenderType() {
@@ -38,5 +39,9 @@ public class BlockRenderer_Idle : MonoBehaviour {
         else {
             spriteRenderer.sprite = null;
         }
+    }
+
+    public void UpdateRenderer() {
+        rootTransform.position = rootTransform.parent.position + blockRenderer.RaiseTranslation;
     }
 }

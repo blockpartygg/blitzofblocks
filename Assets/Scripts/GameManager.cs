@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
+    [SerializeField] BoardRaiser boardRaiser = null;
     [SerializeField] ScoreManager scoreManager = null;
     [SerializeField] ClockManager clockManager = null;
     [SerializeField] CursorSwapper cursorSwapper = null;
@@ -40,6 +41,10 @@ public class GameManager : MonoBehaviour {
     }
 
     IEnumerator RunGameStarting() {
+        if(boardRaiser != null) {
+            boardRaiser.enabled = false;
+        }
+
         clockManager.SetActive(false);
         clockManager.ResetSecondsRemaining();
         cursorRenderer.SetKeyboardVisible(true);
@@ -52,6 +57,10 @@ public class GameManager : MonoBehaviour {
     }
 
     IEnumerator RunGamePlaying() {
+        if(boardRaiser != null) {
+            boardRaiser.enabled = true;
+        }
+
         scoreManager.SetActive(true);
         clockManager.SetActive(true);
         cursorSwapper.SetActive(true);

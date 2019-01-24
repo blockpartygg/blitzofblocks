@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3678282ab777b348897bfb14296bc36, type: 3}
-  m_Name: ObjectiveString
+  m_Script: {fileID: 11500000, guid: 96ed1c9d235ee884a81b7686da509d7b, type: 3}
+  m_Name: RaiseRateMaximum
   m_EditorClassIdentifier: 
-  Value: Time Attack\n<size=64>Score as many points in 2 minutes as possible</size>
+  Value: 10

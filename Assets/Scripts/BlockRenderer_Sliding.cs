@@ -3,6 +3,7 @@ using System;
 
 public class BlockRenderer_Sliding : MonoBehaviour {
     [SerializeField] Block block = null;
+    [SerializeField] BlockRenderer blockRenderer = null;
     [SerializeField] BlockSlider slider = null;
     [SerializeField] FloatReference slideDuration = null;
     [SerializeField] Transform rootTransform = null;
@@ -12,7 +13,7 @@ public class BlockRenderer_Sliding : MonoBehaviour {
             float direction = slider.Direction == SlideDirection.Left ? -1 : 1;
             float timePercentage = slider.Elapsed / slideDuration.Value;
             Vector3 slideTranslation = new Vector3(direction * timePercentage, 0);
-            rootTransform.position = rootTransform.parent.position + slideTranslation;
+            rootTransform.position = rootTransform.parent.position + blockRenderer.RaiseTranslation + slideTranslation;
         }
     }
 }

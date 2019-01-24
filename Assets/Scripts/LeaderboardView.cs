@@ -2,6 +2,7 @@
 using PlayFab.ClientModels;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
 
@@ -11,20 +12,54 @@ public class LeaderboardView : MonoBehaviour {
     [SerializeField] GameObject leaderboardEntryPrefab = null;
 
     IEnumerator Start() {
-        while(leaderboardManager.Entries.Count == 0) {
+        while(leaderboardManager.ScoreWebEntries.Count == 0 ||
+            leaderboardManager.ScoreMobileEntries.Count == 0 ||
+            leaderboardManager.BlocksMatchedWebEntries.Count == 0 ||
+            leaderboardManager.BlocksMatchedMobileEntries.Count == 0) {
             yield return new WaitForSeconds(1);
         }
 
-        PopulateLeaderboard();
+        bool isMobile = Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer;
+
+        PopulateLeaderboard(isMobile ? leaderboardManager.ScoreMobileEntries : leaderboardManager.ScoreWebEntries);
     }
 
-    void PopulateLeaderboard() {
+    public void HandleLeaderboardDropdownValueChanged(int value) {
+        switch (value) {
+            case 0: // Score (Web)
+                leaderboardManager.GetLeaderboard("Score", result => {
+                    leaderboardManager.ScoreWebEntries = result.Leaderboard;
+                    PopulateLeaderboard(leaderboardManager.ScoreWebEntries);
+                });
+                break;
+            case 1: // Blocks Matched (Web)
+                leaderboardManager.GetLeaderboard("ScoreMobile", result => {
+                    leaderboardManager.ScoreWebEntries = result.Leaderboard;
+                    PopulateLeaderboard(leaderboardManager.BlocksMatchedWebEntries);
+                });
+                break;
+            case 2: // Score (Mobile)
+                leaderboardManager.GetLeaderboard("BlocksMatched", result => {
+                    leaderboardManager.ScoreWebEntries = result.Leaderboard;
+                    PopulateLeaderboard(leaderboardManager.ScoreMobileEntries);
+                });
+                break;
+            case 3:
+                leaderboardManager.GetLeaderboard("BlocksMatchedMobile", result => {
+                    leaderboardManager.ScoreWebEntries = result.Leaderboard;
+                    PopulateLeaderboard(leaderboardManager.BlocksMatchedMobileEntries);
+                });
+                break;
+        }
+    }
+
+    void PopulateLeaderboard(List<PlayerLeaderboardEntry> entries) {
         // Destroy any existing game objects that are children to the leaderboard content object
         foreach(Transform child in content) {
             GameObject.Destroy(child.gameObject);
         }
 
-        foreach (PlayerLeaderboardEntry entry in leaderboardManager.Entries) {
+        foreach (PlayerLeaderboardEntry entry in entries) {
             GameObject leaderboardEntry = Instantiate(leaderboardEntryPrefab, content);
             GameObject panel = leaderboardEntry.transform.Find("Panel").gameObject;
 

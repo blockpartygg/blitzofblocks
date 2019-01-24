@@ -7,6 +7,8 @@ public class CursorRenderer : MonoBehaviour {
     [SerializeField] Transform mouseRoot = null;
     [SerializeField] SpriteRenderer keyboardSpriteRenderer = null;
     [SerializeField] SpriteRenderer mouseSpriteRenderer = null;
+    [SerializeField] BoardRaiser raiser = null;
+    [SerializeField] FloatReference boardRaiseDuration = null;
     public bool IsVisible = true;
     Vector3 cursorTranslation;
 
@@ -41,11 +43,16 @@ public class CursorRenderer : MonoBehaviour {
     }
 
     void Update() {
+        Vector3 raiseTranslation = Vector3.zero;
+        if (raiser != null) {
+            raiseTranslation = new Vector3(0, raiser.Elapsed / boardRaiseDuration.Value);
+        }
+
         cursorTranslation.Set(cursor.Column, cursor.Row, 0);
-        keyboardRoot.position = keyboardRoot.parent.position + cursorTranslation;
+        keyboardRoot.position = keyboardRoot.parent.position + raiseTranslation + cursorTranslation;
 
         if (cursor.SelectedBlock != null) {
-            mouseRoot.position = mouseRoot.parent.position + new Vector3(cursor.SelectedBlock.Column, cursor.SelectedBlock.Row, 0);
+            mouseRoot.position = mouseRoot.parent.position + raiseTranslation + new Vector3(cursor.SelectedBlock.Column, cursor.SelectedBlock.Row, 0);
         }
     }
 }

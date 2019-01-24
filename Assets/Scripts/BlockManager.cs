@@ -24,15 +24,6 @@ public class BlockManager : MonoBehaviour {
         }
     }
 
-    void Start() {
-        for(int row = 0; row < rows.Value + 1; row++) {
-            for(int column = 0; column < columns.Value; column++) {
-                Blocks[column, row].State = BlockState.Idle;
-                Blocks[column, row].Type = GetRandomBlockType(column, row);
-            }
-        }
-    }
-
     public int GetRandomBlockType(int column, int row) {
 		int type;
 		do {

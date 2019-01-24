@@ -10,9 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6147201225645794753}
   - component: {fileID: 6279145168434841525}
+  - component: {fileID: 1537024361747065073}
+  - component: {fileID: 6494591919702984698}
   - component: {fileID: 4618386954430772546}
+  - component: {fileID: 944433024381692221}
   - component: {fileID: 726295789559540670}
   - component: {fileID: 1692626815271949276}
+  - component: {fileID: 5497938870405478641}
   - component: {fileID: 3950193985575774069}
   m_Layer: 0
   m_Name: Blocks
@@ -63,6 +67,48 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 7c6ec5775b5519c46a3bfd842d27664d, type: 2}
+--- !u!114 &1537024361747065073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6147201225645794766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c8bc732f2a1d846ba03ae7aa0443f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockManager: {fileID: 6279145168434841525}
+  boardColumns:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: ea42521d3998d6b44b8606aaa2138828, type: 2}
+  boardRows:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 0d38f9d9b14b6ec4c8b0acccec46c42e, type: 2}
+--- !u!114 &6494591919702984698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6147201225645794766}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 509bca9ac499edd469f4aae42a3a1cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockManager: {fileID: 6279145168434841525}
+  boardColumns:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 6f820cc0c82875147a8ca597451eda97, type: 2}
+  startingRows:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 02834ba1be47a4947b30cc01748b573e, type: 2}
 --- !u!114 &4618386954430772546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,6 +130,27 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 0d38f9d9b14b6ec4c8b0acccec46c42e, type: 2}
+--- !u!114 &944433024381692221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6147201225645794766}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b3d3591a21e5a746a4a155d83a0221d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockManager: {fileID: 6279145168434841525}
+  Blocks: []
+  blockPrefab: {fileID: 6101163365759769892, guid: 7eb2196d474a5064a9a0599379d81310,
+    type: 3}
+  blockParent: {fileID: 6147201225886094882}
+  boardColumns:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 6f820cc0c82875147a8ca597451eda97, type: 2}
 --- !u!114 &726295789559540670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,11 +165,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockManager: {fileID: 6279145168434841525}
   scoreManager: {fileID: 11400000, guid: 008118f028c5029419e4b6def5d7d5eb, type: 2}
+  panelManager: {fileID: 0}
   chainDetector: {fileID: 3950193985575774069}
+  audioCue: {fileID: 0}
+  audioSource: {fileID: 0}
   boardColumns:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: ea42521d3998d6b44b8606aaa2138828, type: 2}
+  boardRows:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 0}
   minimumMatchLength:
     useConstant: 0
     constantValue: 0
@@ -129,6 +203,55 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 0d38f9d9b14b6ec4c8b0acccec46c42e, type: 2}
+  audioCue: {fileID: 0}
+  audioSource: {fileID: 0}
+--- !u!114 &5497938870405478641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6147201225645794766}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83eb289b9a0aee143be8ccd0dcf9c704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockManager: {fileID: 6279145168434841525}
+  newRow: {fileID: 944433024381692221}
+  boardColumns:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 6f820cc0c82875147a8ca597451eda97, type: 2}
+  boardRows:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 2755415b4ef14264eb1953ce6ac561e9, type: 2}
+  raiseDuration:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 73e3616a59dd32c4ab6e4d4fde8f8fa3, type: 2}
+  lossCountdownDuration:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 44b01cea95a516841b117bc00ef0da9d, type: 2}
+  minimumRaiseRate:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 5faca60d32f72464c93e7ce7a5785a9e, type: 2}
+  maximumRaiseRate:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: b1a46f9996a18704694f08e888b430bc, type: 2}
+  manualRaiseRate:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 65c85e9cd9463c244b95ccd2d9329ea3, type: 2}
+  scoreManager: {fileID: 11400000, guid: 008118f028c5029419e4b6def5d7d5eb, type: 2}
+  matchDetector: {fileID: 726295789559540670}
+  cursor: {fileID: 0}
+  Elapsed: 0
+  LossElapsed: 0
 --- !u!114 &3950193985575774069
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class CursorMover : MonoBehaviour {
     [SerializeField] Cursor cursor = null;
-    [SerializeField] CursorRenderer renderer = null;
     [SerializeField] IntReference columns = null;
     [SerializeField] IntReference rows = null;
     [SerializeField] AudioCue audioCue = null;

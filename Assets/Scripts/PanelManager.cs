@@ -4,12 +4,8 @@ public class PanelManager : MonoBehaviour {
 	public Panel[,] Panels;
     [SerializeField] Panel panelPrefab = null;
     [SerializeField] Transform parentTransform = null;
-    // public BoardRaiser BoardRaiser;
-    // public FloatReference RaiseDuration;
     [SerializeField] IntReference boardColumns = null, boardRows = null;
     [SerializeField] StringReference panelName = null;
-
-    Vector3 initialPosition;
 
     void Awake() {
         Panels = new Panel[boardColumns.Value, boardRows.Value];
@@ -22,11 +18,5 @@ public class PanelManager : MonoBehaviour {
                 Panels[column, row].Row = row;
             }
         }
-    }
-
-    void Update() {
-        // Vector3 raiseTranslation = initialPosition + new Vector3(0, BoardRaiser.Elapsed / RaiseDuration.Value);
-
-		// transform.position = raiseTranslation;
     }
 }

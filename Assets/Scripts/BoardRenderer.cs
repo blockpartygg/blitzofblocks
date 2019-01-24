@@ -6,6 +6,7 @@ public class BoardRenderer : MonoBehaviour {
     [SerializeField] Transform blockRoot = null;
     [SerializeField] Transform cursorRoot = null;
     [SerializeField] Transform panelRoot = null;
+    [SerializeField] Transform nextRowDarkenerRoot = null;
     [SerializeField] IntReference boardColumns = null;
     [SerializeField] IntReference boardRows = null;
 
@@ -19,5 +20,6 @@ public class BoardRenderer : MonoBehaviour {
         blockRoot.position = new Vector3(-0.5f * (boardColumns.Value - 1), 0, 0);
         cursorRoot.position = new Vector3(-0.5f * (boardColumns.Value - 1), 0, -0.1f);
         panelRoot.position = new Vector3(-0.5f * (boardColumns.Value - 1), 0, -0.5f);
+        nextRowDarkenerRoot.position = new Vector3(0, -0.5f, 0);
     }
 }

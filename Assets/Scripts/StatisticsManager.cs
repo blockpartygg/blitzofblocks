@@ -37,12 +37,18 @@ public class StatisticsManager : MonoBehaviour {
 
     public void UpdateStatistics(Action<UpdatePlayerStatisticsResult> resultCallback, Action<PlayFabError> errorCallback) {
         List<StatisticUpdate> updates = new List<StatisticUpdate>();
-        
+
+        bool isMobile = Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer;
+
         PlayFabClientAPI.UpdatePlayerStatistics(new UpdatePlayerStatisticsRequest() {
             Statistics = new List<StatisticUpdate>() {
                 new StatisticUpdate() {
-                    StatisticName = "Score",
+                    StatisticName = isMobile ? "ScoreMobile" : "Score",
                     Value = scoreManager.Points
+                },
+                new StatisticUpdate() {
+                    StatisticName = isMobile ? "BlocksMatchedMobile" : "BlocksMatched",
+                    Value = scoreManager.BlocksMatched
                 }
             }
         },

@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
 public class LeaderboardsManager : MonoBehaviour {
-    public List<PlayerLeaderboardEntry> Entries;
+    public List<PlayerLeaderboardEntry> ScoreWebEntries;
+    public List<PlayerLeaderboardEntry> ScoreMobileEntries;
+    public List<PlayerLeaderboardEntry> BlocksMatchedWebEntries;
+    public List<PlayerLeaderboardEntry> BlocksMatchedMobileEntries;
 
     IEnumerator Start() {
         // Wait for the client to be logged in before requesting the leaderboard
@@ -13,17 +17,20 @@ public class LeaderboardsManager : MonoBehaviour {
             yield return new WaitForSeconds(1);
         }
 
+        GetLeaderboard("Score", result => ScoreWebEntries = result.Leaderboard);
+        GetLeaderboard("ScoreMobile", result => ScoreMobileEntries = result.Leaderboard);
+        GetLeaderboard("BlocksMatched", result => BlocksMatchedWebEntries = result.Leaderboard);
+        GetLeaderboard("BlocksMatchedMobile", result => BlocksMatchedMobileEntries = result.Leaderboard);
+    }
+
+    public void GetLeaderboard(string statisticName, Action<GetLeaderboardResult> resultCallback) {
         PlayFabClientAPI.GetLeaderboard(new GetLeaderboardRequest() {
-            StatisticName = "Score",
+            StatisticName = statisticName,
             StartPosition = 0,
             MaxResultsCount = 100
         },
-        OnSuccess,
+        resultCallback,
         OnError);
-    }
-
-    void OnSuccess(GetLeaderboardResult result) {
-        Entries = result.Leaderboard;
     }
 
     void OnError(PlayFabError error) {

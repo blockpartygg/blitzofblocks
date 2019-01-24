@@ -11,25 +11,41 @@ public enum PanelType {
 public class Panel : MonoBehaviour {
 	public int Column, Row;
     [SerializeField] Transform rootTransform = null;
-	[SerializeField] MeshRenderer meshRenderer = null;
-	[SerializeField] List<Material> materials = null;
+    [SerializeField] SpriteRenderer spriteRenderer = null;
+    [SerializeField] List<Sprite> sprites = null;
 	[SerializeField] TMP_Text text = null;
+    [SerializeField] FloatReference boardRaiseDuration = null;
+    Vector3 raiseTranslation;
+    BoardRaiser raiser;
 
-	void Start() {
+    void Awake() {
+        GameObject blocks = GameObject.Find("Blocks");
+        raiser = blocks.GetComponent<BoardRaiser>();
+    }
+
+    void Start() {
 		transform.position = new Vector3(Column, Row);
-        meshRenderer.enabled = false;
+        spriteRenderer.enabled = false;
 		text.enabled = false;
 	}
 
 	public void Play(PanelType type, int value) {
-		meshRenderer.enabled = true;
-		meshRenderer.material = materials[(int)type];
+        spriteRenderer.enabled = true;
+        spriteRenderer.sprite = sprites[(int)type];
 		text.enabled = true;
 		text.text = type == PanelType.Combo ? value.ToString() : "<size=6>x</size>" + value.ToString();
-		rootTransform.DOMoveY(rootTransform.parent.position.y + 0.5f, 1f).OnComplete(() => { 
-            rootTransform.position = rootTransform.parent.position;
-            meshRenderer.enabled = false; 
+        rootTransform.position = rootTransform.parent.position + raiseTranslation;
+		rootTransform.DOMoveY(rootTransform.parent.position.y + raiseTranslation.y + 0.5f, 1f).OnComplete(() => { 
+            rootTransform.position = rootTransform.parent.position + raiseTranslation;
+            spriteRenderer.enabled = false;
             text.enabled = false; 
         });
 	}
+
+    void Update() {
+        raiseTranslation = Vector3.zero;
+        if (raiser != null) {
+            raiseTranslation = new Vector3(0, raiser.Elapsed / boardRaiseDuration.Value);
+        }
+    }
 }
